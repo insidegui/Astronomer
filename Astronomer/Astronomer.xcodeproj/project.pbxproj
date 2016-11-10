@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
+		DDA23CD21DD4D4D10002270C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD11DD4D4D10002270C /* Assets.xcassets */; };
+		DDA23CD51DD4D4D10002270C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */; };
+		DDA23CE41DD4D52C0002270C /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CE31DD4D52C0002270C /* AppRouter.swift */; };
+		DDA23CE61DD4D63C0002270C /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */; };
+		DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CE81DD4D7950002270C /* Appearance.swift */; };
+		DDA5020A1DD4D8CE00B78F5D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA502091DD4D8CE00B78F5D /* User.swift */; };
+		DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5020B1DD4DA1400B78F5D /* Repository.swift */; };
+		DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5020E1DD4DA8000B78F5D /* Adapter.swift */; };
+		DDA502121DD4DABD00B78F5D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA502111DD4DABD00B78F5D /* Result.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DDA23CD11DD4D4D10002270C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDA23CD41DD4D4D10002270C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDA23CD61DD4D4D10002270C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDA23CE31DD4D52C0002270C /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersViewController.swift; sourceTree = "<group>"; };
+		DDA23CE81DD4D7950002270C /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		DDA502091DD4D8CE00B78F5D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DDA5020B1DD4DA1400B78F5D /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		DDA5020E1DD4DA8000B78F5D /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
+		DDA502111DD4DABD00B78F5D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDA23CC41DD4D4D10002270C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDA23CBE1DD4D4D10002270C = {
+			isa = PBXGroup;
+			children = (
+				DDA23CC91DD4D4D10002270C /* Astronomer */,
+				DDA23CC81DD4D4D10002270C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDA23CC81DD4D4D10002270C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDA23CC71DD4D4D10002270C /* Astronomer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDA23CC91DD4D4D10002270C /* Astronomer */ = {
+			isa = PBXGroup;
+			children = (
+				DDA23CE71DD4D7860002270C /* Appearance */,
+				DDA23CE01DD4D4F60002270C /* Resources */,
+				DDA23CDF1DD4D4F10002270C /* Views */,
+				DDA23CDE1DD4D4EC0002270C /* Controllers */,
+				DDA23CDD1DD4D4E50002270C /* Bootstrap */,
+				DDA23CDC1DD4D4E20002270C /* Core */,
+			);
+			path = Astronomer;
+			sourceTree = "<group>";
+		};
+		DDA23CDC1DD4D4E20002270C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DDA5020D1DD4DA5A00B78F5D /* Adapters */,
+				DDA23CEA1DD4D8B20002270C /* Models */,
+				DDA23CE21DD4D5000002270C /* Storage */,
+				DDA23CE11DD4D4FC0002270C /* Networking */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		DDA23CDD1DD4D4E50002270C /* Bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */,
+				DDA23CE31DD4D52C0002270C /* AppRouter.swift */,
+			);
+			name = Bootstrap;
+			sourceTree = "<group>";
+		};
+		DDA23CDE1DD4D4EC0002270C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DDA23CDF1DD4D4F10002270C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		DDA23CE01DD4D4F60002270C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DDA23CD61DD4D4D10002270C /* Info.plist */,
+				DDA23CD11DD4D4D10002270C /* Assets.xcassets */,
+				DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DDA23CE11DD4D4FC0002270C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		DDA23CE21DD4D5000002270C /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Storage;
+			sourceTree = "<group>";
+		};
+		DDA23CE71DD4D7860002270C /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				DDA23CE81DD4D7950002270C /* Appearance.swift */,
+			);
+			name = Appearance;
+			sourceTree = "<group>";
+		};
+		DDA23CEA1DD4D8B20002270C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DDA502111DD4DABD00B78F5D /* Result.swift */,
+				DDA502091DD4D8CE00B78F5D /* User.swift */,
+				DDA5020B1DD4DA1400B78F5D /* Repository.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DDA5020D1DD4DA5A00B78F5D /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				DDA5020E1DD4DA8000B78F5D /* Adapter.swift */,
+			);
+			name = Adapters;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDA23CC61DD4D4D10002270C /* Astronomer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDA23CD91DD4D4D10002270C /* Build configuration list for PBXNativeTarget "Astronomer" */;
+			buildPhases = (
+				DDA23CC31DD4D4D10002270C /* Sources */,
+				DDA23CC41DD4D4D10002270C /* Frameworks */,
+				DDA23CC51DD4D4D10002270C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Astronomer;
+			productName = Astronomer;
+			productReference = DDA23CC71DD4D4D10002270C /* Astronomer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDA23CBF1DD4D4D10002270C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Guilherme Rambo";
+				TargetAttributes = {
+					DDA23CC61DD4D4D10002270C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8C7439RJLG;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DDA23CC21DD4D4D10002270C /* Build configuration list for PBXProject "Astronomer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DDA23CBE1DD4D4D10002270C;
+			productRefGroup = DDA23CC81DD4D4D10002270C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDA23CC61DD4D4D10002270C /* Astronomer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDA23CC51DD4D4D10002270C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA23CD51DD4D4D10002270C /* LaunchScreen.storyboard in Resources */,
+				DDA23CD21DD4D4D10002270C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDA23CC31DD4D4D10002270C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */,
+				DDA23CE41DD4D52C0002270C /* AppRouter.swift in Sources */,
+				DDA23CE61DD4D63C0002270C /* SearchUsersViewController.swift in Sources */,
+				DDA5020A1DD4D8CE00B78F5D /* User.swift in Sources */,
+				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,
+				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
+				DDA502121DD4DABD00B78F5D /* Result.swift in Sources */,
+				DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDA23CD41DD4D4D10002270C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DDA23CD71DD4D4D10002270C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DDA23CD81DD4D4D10002270C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DDA23CDA1DD4D4D10002270C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				INFOPLIST_FILE = Astronomer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.Astronomer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DDA23CDB1DD4D4D10002270C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				INFOPLIST_FILE = Astronomer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.Astronomer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDA23CC21DD4D4D10002270C /* Build configuration list for PBXProject "Astronomer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDA23CD71DD4D4D10002270C /* Debug */,
+				DDA23CD81DD4D4D10002270C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDA23CD91DD4D4D10002270C /* Build configuration list for PBXNativeTarget "Astronomer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDA23CDA1DD4D4D10002270C /* Debug */,
+				DDA23CDB1DD4D4D10002270C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDA23CBF1DD4D4D10002270C /* Project object */;
+}
