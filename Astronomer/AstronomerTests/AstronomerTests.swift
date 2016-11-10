@@ -76,4 +76,23 @@ class AstronomerTests: XCTestCase {
         }
     }
     
+    func testRepositoryAdapter() {
+        let json = JSON(data: singleRepoData)
+        let result = RepositoryAdapter(input: json).adapt()
+        
+        switch result {
+        case .error(let error):
+            XCTFail("Expected to succeed but failed with error \(error)")
+        case .success(let repository):
+            XCTAssertEqual(repository.id, "34222505")
+            XCTAssertEqual(repository.name, "WWDC")
+            XCTAssertEqual(repository.fullName, "insidegui/WWDC")
+            XCTAssertEqual(repository.description, "The unofficial WWDC app for macOS")
+            
+            XCTAssertEqual(repository.stars, 4838)
+            XCTAssertEqual(repository.forks, 361)
+            XCTAssertEqual(repository.watchers, 4838)
+        }
+    }
+    
 }
