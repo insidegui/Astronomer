@@ -10,11 +10,12 @@ import Foundation
 
 enum AdapterError: Error {
     case notImplemented
+    case missingRequiredFields
 }
 
 class Adapter<I, O> {
     
-    private var input: I
+    var input: I
     
     init(input: I) {
         self.input = input
