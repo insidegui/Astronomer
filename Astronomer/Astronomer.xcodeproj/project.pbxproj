@@ -18,6 +18,7 @@
 		DD1D55FA1DD4F85E00ABC3DB /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */; };
 		DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
+		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
 		DDA23CD21DD4D4D10002270C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD11DD4D4D10002270C /* Assets.xcassets */; };
 		DDA23CD51DD4D4D10002270C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */; };
@@ -53,6 +54,7 @@
 		DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsAdapter.swift; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
+		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA23CD11DD4D4D10002270C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		DDA23CE11DD4D4FC0002270C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				DD74CF3C1DD527E7000B5ADE /* Credentials.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				DDA23CE41DD4D52C0002270C /* AppRouter.swift in Sources */,
 				DD1D55FA1DD4F85E00ABC3DB /* SearchResults.swift in Sources */,
 				DDA23CE61DD4D63C0002270C /* SearchUsersViewController.swift in Sources */,
+				DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */,
 				DDA5020A1DD4D8CE00B78F5D /* User.swift in Sources */,
 				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
