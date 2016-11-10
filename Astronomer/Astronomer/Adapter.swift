@@ -17,7 +17,7 @@ class Adapter<I, O> {
     
     var input: I
     
-    init(input: I) {
+    required init(input: I) {
         self.input = input
     }
     

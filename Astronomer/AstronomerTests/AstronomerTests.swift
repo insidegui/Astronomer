@@ -57,4 +57,23 @@ class AstronomerTests: XCTestCase {
         }
     }
     
+    func testSearchUsersAdapter() {
+        let json = JSON(data: searchUsersData)
+        let result = SearchUsersAdapter(input: json).adapt()
+        
+        switch result {
+        case .error(let error):
+            XCTFail("Expected to succeed but failed with error \(error)")
+        case .success(let searchResults):
+            XCTAssertEqual(searchResults.items.count, 30)
+            XCTAssertEqual(searchResults.count, 7662)
+            
+            let user = searchResults.items[3]
+            
+            XCTAssertEqual(user.id, "67184")
+            XCTAssertEqual(user.login, "insidegui")
+            XCTAssertEqual(user.avatar, "https://avatars.githubusercontent.com/u/67184?v=3")
+        }
+    }
+    
 }
