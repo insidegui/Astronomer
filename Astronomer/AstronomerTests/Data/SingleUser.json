@@ -17,7 +17,7 @@
   "type": "User",
   "site_admin": false,
   "name": "Guilherme Rambo",
-  "company": null,
+  "company": "FAKECOMPANYFORTESTS",
   "blog": "twitter.com/_inside",
   "location": "Brazil",
   "email": "insidegui@gmail.com",

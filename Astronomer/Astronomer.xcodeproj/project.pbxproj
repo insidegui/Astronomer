@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		DD1D55DD1DD4DDA000ABC3DB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */; };
-		DD1D55E01DD4DE1C00ABC3DB /* UserResponseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55DF1DD4DE1C00ABC3DB /* UserResponseAdapter.swift */; };
+		DD1D55E01DD4DE1C00ABC3DB /* UserAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55DF1DD4DE1C00ABC3DB /* UserAdapter.swift */; };
 		DD1D55E81DD4E04E00ABC3DB /* AstronomerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55E71DD4E04E00ABC3DB /* AstronomerTests.swift */; };
 		DD1D55EF1DD4E06300ABC3DB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */; };
+		DD1D55F51DD4E77100ABC3DB /* SearchUsers.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1D55F11DD4E77100ABC3DB /* SearchUsers.json */; };
+		DD1D55F61DD4E77100ABC3DB /* SingleRepo.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1D55F21DD4E77100ABC3DB /* SingleRepo.json */; };
+		DD1D55F71DD4E77100ABC3DB /* SingleUser.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1D55F31DD4E77100ABC3DB /* SingleUser.json */; };
+		DD1D55F81DD4E77100ABC3DB /* UserRepos.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1D55F41DD4E77100ABC3DB /* UserRepos.json */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
 		DDA23CD21DD4D4D10002270C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD11DD4D4D10002270C /* Assets.xcassets */; };
 		DDA23CD51DD4D4D10002270C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */; };
@@ -35,10 +39,14 @@
 
 /* Begin PBXFileReference section */
 		DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		DD1D55DF1DD4DE1C00ABC3DB /* UserResponseAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponseAdapter.swift; sourceTree = "<group>"; };
+		DD1D55DF1DD4DE1C00ABC3DB /* UserAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAdapter.swift; sourceTree = "<group>"; };
 		DD1D55E51DD4E04E00ABC3DB /* AstronomerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronomerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD1D55E71DD4E04E00ABC3DB /* AstronomerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomerTests.swift; sourceTree = "<group>"; };
 		DD1D55E91DD4E04E00ABC3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD1D55F11DD4E77100ABC3DB /* SearchUsers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SearchUsers.json; path = Data/SearchUsers.json; sourceTree = "<group>"; };
+		DD1D55F21DD4E77100ABC3DB /* SingleRepo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SingleRepo.json; path = Data/SingleRepo.json; sourceTree = "<group>"; };
+		DD1D55F31DD4E77100ABC3DB /* SingleUser.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = SingleUser.json; path = Data/SingleUser.json; sourceTree = "<group>"; };
+		DD1D55F41DD4E77100ABC3DB /* UserRepos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UserRepos.json; path = Data/UserRepos.json; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA23CD11DD4D4D10002270C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,10 +92,22 @@
 		DD1D55E61DD4E04E00ABC3DB /* AstronomerTests */ = {
 			isa = PBXGroup;
 			children = (
+				DD1D55F01DD4E0D300ABC3DB /* Test Data */,
 				DD1D55E71DD4E04E00ABC3DB /* AstronomerTests.swift */,
 				DD1D55E91DD4E04E00ABC3DB /* Info.plist */,
 			);
 			path = AstronomerTests;
+			sourceTree = "<group>";
+		};
+		DD1D55F01DD4E0D300ABC3DB /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				DD1D55F11DD4E77100ABC3DB /* SearchUsers.json */,
+				DD1D55F21DD4E77100ABC3DB /* SingleRepo.json */,
+				DD1D55F31DD4E77100ABC3DB /* SingleUser.json */,
+				DD1D55F41DD4E77100ABC3DB /* UserRepos.json */,
+			);
+			name = "Test Data";
 			sourceTree = "<group>";
 		};
 		DDA23CBE1DD4D4D10002270C = {
@@ -203,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA5020E1DD4DA8000B78F5D /* Adapter.swift */,
-				DD1D55DF1DD4DE1C00ABC3DB /* UserResponseAdapter.swift */,
+				DD1D55DF1DD4DE1C00ABC3DB /* UserAdapter.swift */,
 			);
 			name = Adapters;
 			sourceTree = "<group>";
@@ -294,6 +314,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1D55F51DD4E77100ABC3DB /* SearchUsers.json in Resources */,
+				DD1D55F61DD4E77100ABC3DB /* SingleRepo.json in Resources */,
+				DD1D55F81DD4E77100ABC3DB /* UserRepos.json in Resources */,
+				DD1D55F71DD4E77100ABC3DB /* SingleUser.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,7 +370,7 @@
 				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
 				DDA502121DD4DABD00B78F5D /* Result.swift in Sources */,
-				DD1D55E01DD4DE1C00ABC3DB /* UserResponseAdapter.swift in Sources */,
+				DD1D55E01DD4DE1C00ABC3DB /* UserAdapter.swift in Sources */,
 				DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

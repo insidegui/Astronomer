@@ -12,16 +12,16 @@ struct User {
     
     let id: String
     let login: String
-    let email: String
-    let name: String
-    let company: String
-    let location: String
-    let blog: String
+    let email: String?
+    let name: String?
+    let company: String?
+    let location: String?
+    let blog: String?
     let avatar: String
-    let bio: String
+    let bio: String?
     
-    let repos: Int
-    let followers: Int
-    let following: Int
+    let repos: Int?
+    let followers: Int?
+    let following: Int?
     
 }
