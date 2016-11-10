@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1D55DD1DD4DDA000ABC3DB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
 		DDA23CD21DD4D4D10002270C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD11DD4D4D10002270C /* Assets.xcassets */; };
 		DDA23CD51DD4D4D10002270C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA23CD11DD4D4D10002270C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,17 +41,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1D55DD1DD4DDA000ABC3DB /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD1D55DB1DD4DDA000ABC3DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DDA23CBE1DD4D4D10002270C = {
 			isa = PBXGroup;
 			children = (
 				DDA23CC91DD4D4D10002270C /* Astronomer */,
 				DDA23CC81DD4D4D10002270C /* Products */,
+				DD1D55DB1DD4DDA000ABC3DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +181,7 @@
 				DDA23CC31DD4D4D10002270C /* Sources */,
 				DDA23CC41DD4D4D10002270C /* Frameworks */,
 				DDA23CC51DD4D4D10002270C /* Resources */,
+				DD1D55DE1DD4DDA900ABC3DB /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -225,6 +238,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DD1D55DE1DD4DDA900ABC3DB /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DDA23CC31DD4D4D10002270C /* Sources */ = {
@@ -354,6 +385,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Astronomer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.Astronomer;
@@ -367,6 +402,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Astronomer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.Astronomer;
