@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DD1D55DD1DD4DDA000ABC3DB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */; };
+		DD1D55E01DD4DE1C00ABC3DB /* UserResponseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55DF1DD4DE1C00ABC3DB /* UserResponseAdapter.swift */; };
+		DD1D55E81DD4E04E00ABC3DB /* AstronomerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55E71DD4E04E00ABC3DB /* AstronomerTests.swift */; };
+		DD1D55EF1DD4E06300ABC3DB /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
 		DDA23CD21DD4D4D10002270C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD11DD4D4D10002270C /* Assets.xcassets */; };
 		DDA23CD51DD4D4D10002270C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */; };
@@ -20,8 +23,22 @@
 		DDA502121DD4DABD00B78F5D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA502111DD4DABD00B78F5D /* Result.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DD1D55EA1DD4E04E00ABC3DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDA23CBF1DD4D4D10002270C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDA23CC61DD4D4D10002270C;
+			remoteInfo = Astronomer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		DD1D55DF1DD4DE1C00ABC3DB /* UserResponseAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserResponseAdapter.swift; sourceTree = "<group>"; };
+		DD1D55E51DD4E04E00ABC3DB /* AstronomerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstronomerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1D55E71DD4E04E00ABC3DB /* AstronomerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstronomerTests.swift; sourceTree = "<group>"; };
+		DD1D55E91DD4E04E00ABC3DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA23CD11DD4D4D10002270C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +54,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DD1D55E21DD4E04E00ABC3DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1D55EF1DD4E06300ABC3DB /* SwiftyJSON.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDA23CC41DD4D4D10002270C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -56,10 +81,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD1D55E61DD4E04E00ABC3DB /* AstronomerTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD1D55E71DD4E04E00ABC3DB /* AstronomerTests.swift */,
+				DD1D55E91DD4E04E00ABC3DB /* Info.plist */,
+			);
+			path = AstronomerTests;
+			sourceTree = "<group>";
+		};
 		DDA23CBE1DD4D4D10002270C = {
 			isa = PBXGroup;
 			children = (
 				DDA23CC91DD4D4D10002270C /* Astronomer */,
+				DD1D55E61DD4E04E00ABC3DB /* AstronomerTests */,
 				DDA23CC81DD4D4D10002270C /* Products */,
 				DD1D55DB1DD4DDA000ABC3DB /* Frameworks */,
 			);
@@ -69,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA23CC71DD4D4D10002270C /* Astronomer.app */,
+				DD1D55E51DD4E04E00ABC3DB /* AstronomerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA5020E1DD4DA8000B78F5D /* Adapter.swift */,
+				DD1D55DF1DD4DE1C00ABC3DB /* UserResponseAdapter.swift */,
 			);
 			name = Adapters;
 			sourceTree = "<group>";
@@ -174,6 +211,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DD1D55E41DD4E04E00ABC3DB /* AstronomerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD1D55EC1DD4E04E00ABC3DB /* Build configuration list for PBXNativeTarget "AstronomerTests" */;
+			buildPhases = (
+				DD1D55E11DD4E04E00ABC3DB /* Sources */,
+				DD1D55E21DD4E04E00ABC3DB /* Frameworks */,
+				DD1D55E31DD4E04E00ABC3DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD1D55EB1DD4E04E00ABC3DB /* PBXTargetDependency */,
+			);
+			name = AstronomerTests;
+			productName = AstronomerTests;
+			productReference = DD1D55E51DD4E04E00ABC3DB /* AstronomerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DDA23CC61DD4D4D10002270C /* Astronomer */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDA23CD91DD4D4D10002270C /* Build configuration list for PBXNativeTarget "Astronomer" */;
@@ -202,6 +257,12 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Guilherme Rambo";
 				TargetAttributes = {
+					DD1D55E41DD4E04E00ABC3DB = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 8C7439RJLG;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DDA23CC61DD4D4D10002270C;
+					};
 					DDA23CC61DD4D4D10002270C = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8C7439RJLG;
@@ -223,11 +284,19 @@
 			projectRoot = "";
 			targets = (
 				DDA23CC61DD4D4D10002270C /* Astronomer */,
+				DD1D55E41DD4E04E00ABC3DB /* AstronomerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DD1D55E31DD4E04E00ABC3DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDA23CC51DD4D4D10002270C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +327,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DD1D55E11DD4E04E00ABC3DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1D55E81DD4E04E00ABC3DB /* AstronomerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDA23CC31DD4D4D10002270C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,11 +346,20 @@
 				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
 				DDA502121DD4DABD00B78F5D /* Result.swift in Sources */,
+				DD1D55E01DD4DE1C00ABC3DB /* UserResponseAdapter.swift in Sources */,
 				DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD1D55EB1DD4E04E00ABC3DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDA23CC61DD4D4D10002270C /* Astronomer */;
+			targetProxy = DD1D55EA1DD4E04E00ABC3DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DDA23CD31DD4D4D10002270C /* LaunchScreen.storyboard */ = {
@@ -287,6 +373,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DD1D55ED1DD4E04E00ABC3DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = AstronomerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.AstronomerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Astronomer.app/Astronomer";
+			};
+			name = Debug;
+		};
+		DD1D55EE1DD4E04E00ABC3DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 8C7439RJLG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = AstronomerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.guilhermerambo.AstronomerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Astronomer.app/Astronomer";
+			};
+			name = Release;
+		};
 		DDA23CD71DD4D4D10002270C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -417,6 +539,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD1D55EC1DD4E04E00ABC3DB /* Build configuration list for PBXNativeTarget "AstronomerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1D55ED1DD4E04E00ABC3DB /* Debug */,
+				DD1D55EE1DD4E04E00ABC3DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DDA23CC21DD4D4D10002270C /* Build configuration list for PBXProject "Astronomer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
