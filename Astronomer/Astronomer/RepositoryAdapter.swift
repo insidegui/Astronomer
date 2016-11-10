@@ -49,3 +49,23 @@ final class RepositoryAdapter: Adapter<JSON, Repository> {
     }
     
 }
+
+final class RepositoriesAdapter: Adapter<JSON, [Repository]> {
+    
+    override func adapt() -> Result<[Repository], AdapterError> {
+        guard let reposArray = input.array else {
+            return .error(.missingRequiredFields)
+        }
+        
+        let repos = reposArray.flatMap { repoJSON -> Repository? in
+            let result = RepositoryAdapter(input: repoJSON).adapt()
+            switch result {
+            case .error(_): return nil
+            case .success(let repo): return repo
+            }
+        }
+        
+        return .success(repos)
+    }
+    
+}

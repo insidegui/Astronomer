@@ -95,4 +95,25 @@ class AstronomerTests: XCTestCase {
         }
     }
     
+    func testRepositoriesAdapter() {
+        let json = JSON(data: userReposData)
+        let result = RepositoriesAdapter(input: json).adapt()
+        
+        switch result {
+        case .error(let error):
+            XCTFail("Expected to succeed but failed with error \(error)")
+        case .success(let repositories):
+            XCTAssertEqual(repositories.count, 29)
+            
+            let repo = repositories[5]
+            XCTAssertEqual(repo.id, "62277423")
+            XCTAssertEqual(repo.name, "Binge")
+            XCTAssertEqual(repo.fullName, "insidegui/Binge")
+            XCTAssertEqual(repo.description, "Projeto exemplo da minha palestra sobre desenvolvimento pra Mac")
+            XCTAssertEqual(repo.stars, 6)
+            XCTAssertEqual(repo.forks, 2)
+            XCTAssertEqual(repo.watchers, 6)
+        }
+    }
+    
 }
