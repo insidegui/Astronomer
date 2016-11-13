@@ -35,6 +35,7 @@
 		DDA502121DD4DABD00B78F5D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA502111DD4DABD00B78F5D /* Result.swift */; };
 		DDB2559F1DD8DDB300AE1A8E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559D1DD8DDB300AE1A8E /* Realm.framework */; };
 		DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */; };
+		DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		DDA502111DD4DABD00B78F5D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DDB2559D1DD8DDB300AE1A8E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 		DDA23CE21DD4D5000002270C /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				DDFD0DE21DD8F69E00A322C4 /* Realm Objects */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -259,6 +262,14 @@
 				DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */,
 			);
 			name = Adapters;
+			sourceTree = "<group>";
+		};
+		DDFD0DE21DD8F69E00A322C4 /* Realm Objects */ = {
+			isa = PBXGroup;
+			children = (
+				DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */,
+			);
+			name = "Realm Objects";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +421,7 @@
 				DDA5020A1DD4D8CE00B78F5D /* User.swift in Sources */,
 				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
+				DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */,
 				DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */,
 				DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */,
 				DDA502121DD4DABD00B78F5D /* Result.swift in Sources */,

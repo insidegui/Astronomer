@@ -8,9 +8,12 @@
 
 import XCTest
 import SwiftyJSON
+import RealmSwift
 @testable import Astronomer
 
 class AstronomerTests: XCTestCase {
+    
+    private var realm: Realm!
     
     private class func url(for resource: String) -> URL {
         return Bundle(for: AstronomerTests.self).url(forResource: resource, withExtension: "json")!
@@ -29,11 +32,18 @@ class AstronomerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        // reset database for each test
+        realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "test"))
     }
     
     override func tearDown() {
         super.tearDown()
+        
+        realm = nil
     }
+    
+    // MARK: - Adapter tests
     
     func testUserAdapter() {
         let json = JSON(data: singleUserData)
@@ -130,6 +140,53 @@ class AstronomerTests: XCTestCase {
             XCTAssertEqual(user.id, "97697")
             XCTAssertEqual(user.login, "connor")
         }
+    }
+    
+    // MARK: - Storage tests
+    
+    private lazy var userForStorageTests: User? = {
+        let json = JSON(data: self.singleUserData)
+        let result = UserAdapter(input: json).adapt()
+        
+        switch result {
+        case .success(let user):
+            return user
+        default: return nil
+        }
+    }()
+    
+    func testRealmUserStorage() {
+        let user = userForStorageTests!
+        
+        try! realm.write { realm.add(RealmUser(user: user)) }
+        
+        let realmUser = realm.objects(RealmUser.self).first!
+        
+        XCTAssertEqual(realmUser.id, user.id)
+        XCTAssertEqual(realmUser.login, user.login)
+        XCTAssertEqual(realmUser.email, user.email)
+        XCTAssertEqual(realmUser.name, user.name)
+        XCTAssertEqual(realmUser.company, user.company)
+        XCTAssertEqual(realmUser.location, user.location)
+        XCTAssertEqual(realmUser.blog, user.blog)
+        XCTAssertEqual(realmUser.avatar, user.avatar)
+        XCTAssertEqual(realmUser.bio, user.bio)
+        XCTAssertEqual(realmUser.repos, Int32(user.repos ?? 0))
+        XCTAssertEqual(realmUser.followers, Int32(user.followers ?? 0))
+        XCTAssertEqual(realmUser.following, Int32(user.following ?? 0))
+        
+        XCTAssertEqual(realmUser.user.id, user.id)
+        XCTAssertEqual(realmUser.user.login, user.login)
+        XCTAssertEqual(realmUser.user.email, user.email)
+        XCTAssertEqual(realmUser.user.name, user.name)
+        XCTAssertEqual(realmUser.user.company, user.company)
+        XCTAssertEqual(realmUser.user.location, user.location)
+        XCTAssertEqual(realmUser.user.blog, user.blog)
+        XCTAssertEqual(realmUser.user.avatar, user.avatar)
+        XCTAssertEqual(realmUser.user.bio, user.bio)
+        XCTAssertEqual(realmUser.user.repos, user.repos)
+        XCTAssertEqual(realmUser.user.followers, user.followers)
+        XCTAssertEqual(realmUser.user.following, user.following)
     }
     
 }
