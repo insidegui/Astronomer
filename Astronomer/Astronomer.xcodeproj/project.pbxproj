@@ -36,6 +36,7 @@
 		DDB2559F1DD8DDB300AE1A8E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559D1DD8DDB300AE1A8E /* Realm.framework */; };
 		DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */; };
 		DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */; };
+		DDFD0DE61DD8FF7A00A322C4 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE51DD8FF7A00A322C4 /* RealmRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		DDB2559D1DD8DDB300AE1A8E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
+		DDFD0DE51DD8FF7A00A322C4 /* RealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */,
+				DDFD0DE51DD8FF7A00A322C4 /* RealmRepository.swift */,
 			);
 			name = "Realm Objects";
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				DD4372951DD8BDFF000D7900 /* GithubAPI.swift in Sources */,
 				DDA5020A1DD4D8CE00B78F5D /* User.swift in Sources */,
 				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,
+				DDFD0DE61DD8FF7A00A322C4 /* RealmRepository.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
 				DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */,
 				DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */,

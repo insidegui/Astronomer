@@ -155,6 +155,17 @@ class AstronomerTests: XCTestCase {
         }
     }()
     
+    private func repositoryForStorageTests() -> Repository? {
+        let json = JSON(data: self.singleRepoData)
+        let result = RepositoryAdapter(input: json).adapt()
+        
+        switch result {
+        case .success(let repo):
+            return repo
+        default: return nil
+        }
+    }
+    
     func testRealmUserStorage() {
         let user = userForStorageTests!
         
@@ -187,6 +198,30 @@ class AstronomerTests: XCTestCase {
         XCTAssertEqual(realmUser.user.repos, user.repos)
         XCTAssertEqual(realmUser.user.followers, user.followers)
         XCTAssertEqual(realmUser.user.following, user.following)
+    }
+    
+    func testRealmRepositoryStorage() {
+        let repository = repositoryForStorageTests()!
+        
+        try! realm.write { realm.add(RealmRepository(repository: repository)) }
+        
+        let realmRepo = realm.objects(RealmRepository.self).first!
+		
+		XCTAssertEqual(realmRepo.id, repository.id)
+		XCTAssertEqual(realmRepo.name, repository.name)
+		XCTAssertEqual(realmRepo.fullName, repository.fullName)
+		XCTAssertEqual(realmRepo.tagline, repository.description)
+		XCTAssertEqual(realmRepo.stars, Int32(repository.stars))
+		XCTAssertEqual(realmRepo.forks, Int32(repository.forks))
+		XCTAssertEqual(realmRepo.watchers, Int32(repository.watchers))
+		
+		XCTAssertEqual(realmRepo.repository.id, repository.id)
+		XCTAssertEqual(realmRepo.repository.name, repository.name)
+		XCTAssertEqual(realmRepo.repository.fullName, repository.fullName)
+		XCTAssertEqual(realmRepo.repository.description, repository.description)
+		XCTAssertEqual(realmRepo.repository.stars, repository.stars)
+		XCTAssertEqual(realmRepo.repository.forks, repository.forks)
+		XCTAssertEqual(realmRepo.repository.watchers, repository.watchers)
     }
     
 }
