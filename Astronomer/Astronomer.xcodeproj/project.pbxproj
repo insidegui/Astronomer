@@ -18,6 +18,9 @@
 		DD1D55FA1DD4F85E00ABC3DB /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */; };
 		DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */; };
 		DD4372931DD8BD51000D7900 /* Siesta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4372921DD8BD51000D7900 /* Siesta.framework */; };
+		DD4372951DD8BDFF000D7900 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4372941DD8BDFF000D7900 /* GithubAPI.swift */; };
+		DD4372971DD8C494000D7900 /* UsersAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4372961DD8C494000D7900 /* UsersAdapter.swift */; };
+		DD4372991DD8C4F8000D7900 /* RepoStargazers.json in Resources */ = {isa = PBXBuildFile; fileRef = DD4372981DD8C4F8000D7900 /* RepoStargazers.json */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
 		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
@@ -55,6 +58,9 @@
 		DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsAdapter.swift; sourceTree = "<group>"; };
 		DD4372921DD8BD51000D7900 /* Siesta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siesta.framework; path = Carthage/Build/iOS/Siesta.framework; sourceTree = "<group>"; };
+		DD4372941DD8BDFF000D7900 /* GithubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		DD4372961DD8C494000D7900 /* UsersAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersAdapter.swift; sourceTree = "<group>"; };
+		DD4372981DD8C4F8000D7900 /* RepoStargazers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RepoStargazers.json; path = Data/RepoStargazers.json; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
 		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +124,7 @@
 				DD1D55F21DD4E77100ABC3DB /* SingleRepo.json */,
 				DD1D55F31DD4E77100ABC3DB /* SingleUser.json */,
 				DD1D55F41DD4E77100ABC3DB /* UserRepos.json */,
+				DD4372981DD8C4F8000D7900 /* RepoStargazers.json */,
 			);
 			name = "Test Data";
 			sourceTree = "<group>";
@@ -203,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				DD74CF3C1DD527E7000B5ADE /* Credentials.swift */,
+				DD4372941DD8BDFF000D7900 /* GithubAPI.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -238,6 +246,7 @@
 			children = (
 				DDA5020E1DD4DA8000B78F5D /* Adapter.swift */,
 				DD1D55DF1DD4DE1C00ABC3DB /* UserAdapter.swift */,
+				DD4372961DD8C494000D7900 /* UsersAdapter.swift */,
 				DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */,
 				DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */,
 			);
@@ -330,6 +339,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4372991DD8C4F8000D7900 /* RepoStargazers.json in Resources */,
 				DD1D55F51DD4E77100ABC3DB /* SearchUsers.json in Resources */,
 				DD1D55F61DD4E77100ABC3DB /* SingleRepo.json in Resources */,
 				DD1D55F81DD4E77100ABC3DB /* UserRepos.json in Resources */,
@@ -356,6 +366,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Siesta.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -382,8 +393,10 @@
 				DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */,
 				DDA23CE41DD4D52C0002270C /* AppRouter.swift in Sources */,
 				DD1D55FA1DD4F85E00ABC3DB /* SearchResults.swift in Sources */,
+				DD4372971DD8C494000D7900 /* UsersAdapter.swift in Sources */,
 				DDA23CE61DD4D63C0002270C /* SearchUsersViewController.swift in Sources */,
 				DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */,
+				DD4372951DD8BDFF000D7900 /* GithubAPI.swift in Sources */,
 				DDA5020A1DD4D8CE00B78F5D /* User.swift in Sources */,
 				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
