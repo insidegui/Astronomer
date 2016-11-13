@@ -37,6 +37,7 @@
 		DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */; };
 		DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */; };
 		DDFD0DE61DD8FF7A00A322C4 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE51DD8FF7A00A322C4 /* RealmRepository.swift */; };
+		DDFD0DE81DD902A900A322C4 /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE71DD902A900A322C4 /* StorageController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		DDFD0DE51DD8FF7A00A322C4 /* RealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		DDFD0DE71DD902A900A322C4 /* StorageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				DDFD0DE21DD8F69E00A322C4 /* Realm Objects */,
+				DDFD0DE71DD902A900A322C4 /* StorageController.swift */,
 			);
 			name = Storage;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				DDA502121DD4DABD00B78F5D /* Result.swift in Sources */,
 				DD1D55E01DD4DE1C00ABC3DB /* UserAdapter.swift in Sources */,
 				DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */,
+				DDFD0DE81DD902A900A322C4 /* StorageController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
