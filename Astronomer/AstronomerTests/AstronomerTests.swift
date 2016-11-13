@@ -25,6 +25,7 @@ class AstronomerTests: XCTestCase {
     private lazy var singleRepoData = AstronomerTests.data(for: "SingleRepo")
     private lazy var searchUsersData = AstronomerTests.data(for: "SearchUsers")
     private lazy var userReposData = AstronomerTests.data(for: "UserRepos")
+    private lazy var repoStargazersData = AstronomerTests.data(for: "RepoStargazers")
     
     override func setUp() {
         super.setUp()
@@ -113,6 +114,21 @@ class AstronomerTests: XCTestCase {
             XCTAssertEqual(repo.stars, 6)
             XCTAssertEqual(repo.forks, 2)
             XCTAssertEqual(repo.watchers, 6)
+        }
+    }
+    
+    func testUsersAdapter() {
+        let json = JSON(data: repoStargazersData)
+        let result = UsersAdapter(input: json).adapt()
+        
+        switch result {
+        case .error(let error):
+            XCTFail("Expected to succeed but failed with error \(error)")
+        case .success(let users):
+            XCTAssertEqual(users.count, 30)
+            let user = users[1]
+            XCTAssertEqual(user.id, "97697")
+            XCTAssertEqual(user.login, "connor")
         }
     }
     
