@@ -33,6 +33,8 @@
 		DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5020B1DD4DA1400B78F5D /* Repository.swift */; };
 		DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5020E1DD4DA8000B78F5D /* Adapter.swift */; };
 		DDA502121DD4DABD00B78F5D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA502111DD4DABD00B78F5D /* Result.swift */; };
+		DDB2559F1DD8DDB300AE1A8E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559D1DD8DDB300AE1A8E /* Realm.framework */; };
+		DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		DDA5020B1DD4DA1400B78F5D /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		DDA5020E1DD4DA8000B78F5D /* Adapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		DDA502111DD4DABD00B78F5D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		DDB2559D1DD8DDB300AE1A8E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 			files = (
 				DD1D55DD1DD4DDA000ABC3DB /* SwiftyJSON.framework in Frameworks */,
 				DD4372931DD8BD51000D7900 /* Siesta.framework in Frameworks */,
+				DDB2559F1DD8DDB300AE1A8E /* Realm.framework in Frameworks */,
+				DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +107,8 @@
 		DD1D55DB1DD4DDA000ABC3DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDB2559D1DD8DDB300AE1A8E /* Realm.framework */,
+				DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */,
 				DD4372921DD8BD51000D7900 /* Siesta.framework */,
 				DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */,
 			);
@@ -367,6 +375,8 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Siesta.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = Carthage;
 			outputPaths = (
