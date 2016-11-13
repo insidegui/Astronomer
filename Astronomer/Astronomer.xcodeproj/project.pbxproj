@@ -17,6 +17,7 @@
 		DD1D55F81DD4E77100ABC3DB /* UserRepos.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1D55F41DD4E77100ABC3DB /* UserRepos.json */; };
 		DD1D55FA1DD4F85E00ABC3DB /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */; };
 		DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */; };
+		DD4372931DD8BD51000D7900 /* Siesta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4372921DD8BD51000D7900 /* Siesta.framework */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
 		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		DD1D55F41DD4E77100ABC3DB /* UserRepos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UserRepos.json; path = Data/UserRepos.json; sourceTree = "<group>"; };
 		DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsAdapter.swift; sourceTree = "<group>"; };
+		DD4372921DD8BD51000D7900 /* Siesta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Siesta.framework; path = Carthage/Build/iOS/Siesta.framework; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
 		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1D55DD1DD4DDA000ABC3DB /* SwiftyJSON.framework in Frameworks */,
+				DD4372931DD8BD51000D7900 /* Siesta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +95,7 @@
 		DD1D55DB1DD4DDA000ABC3DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD4372921DD8BD51000D7900 /* Siesta.framework */,
 				DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
