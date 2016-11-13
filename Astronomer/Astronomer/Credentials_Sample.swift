@@ -9,5 +9,6 @@
 import Foundation
 
 struct Credentials {
+	static let username = "YOUR_GITHUB_USERNAME_HERE"
     static let accessToken = "YOUR_PERSONAL_TOKEN_HERE"
 }
