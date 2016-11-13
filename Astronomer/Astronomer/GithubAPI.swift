@@ -87,6 +87,7 @@ final class GithubAPI {
             .resource("/users")
             .child(login.lowercased())
             .child("repos")
+            .withParam("per_page", "100")
     }
     
     /// Resource representing a repository
@@ -114,6 +115,7 @@ final class GithubAPI {
             .child(login.lowercased())
             .child(repositoryName.lowercased())
             .child("stargazers")
+            .withParam("per_page", "100")
     }
     
     // MARK: - Auth
