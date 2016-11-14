@@ -19,6 +19,8 @@ private extension Repository {
         static let stars = "stargazers_count"
         static let forks = "forks"
         static let watchers = "watchers_count"
+        
+        static let owner = "owner"
     }
     
 }
@@ -31,6 +33,17 @@ final class RepositoryAdapter: Adapter<JSON, Repository> {
         let fullName = input[Repository.Keys.fullName].stringValue
         let description = input[Repository.Keys.description].stringValue
         
+        let ownerResult = UserAdapter(input: input[Repository.Keys.owner]).adapt()
+        
+        var owner: User
+        
+        switch ownerResult {
+        case .error(let error):
+            return .error(error)
+        case .success(let user):
+            owner = user
+        }
+        
         guard !id.isEmpty && !name.isEmpty && !fullName.isEmpty && !description.isEmpty else {
             return .error(.missingRequiredFields)
         }
@@ -42,7 +55,8 @@ final class RepositoryAdapter: Adapter<JSON, Repository> {
             description: description,
             stars: input[Repository.Keys.stars].intValue,
             forks: input[Repository.Keys.forks].intValue,
-            watchers: input[Repository.Keys.watchers].intValue
+            watchers: input[Repository.Keys.watchers].intValue,
+            owner: owner
         )
         
         return .success(repo)

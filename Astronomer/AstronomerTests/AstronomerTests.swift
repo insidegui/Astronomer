@@ -103,6 +103,11 @@ class AstronomerTests: XCTestCase {
             XCTAssertEqual(repository.stars, 4838)
             XCTAssertEqual(repository.forks, 361)
             XCTAssertEqual(repository.watchers, 4838)
+            
+            XCTAssertNotNil(repository.owner)
+            XCTAssertEqual(repository.owner?.id, "67184")
+            XCTAssertEqual(repository.owner?.login, "insidegui")
+            XCTAssertEqual(repository.owner?.avatar, "https://avatars.githubusercontent.com/u/67184?v=3")
         }
     }
     
@@ -124,6 +129,11 @@ class AstronomerTests: XCTestCase {
             XCTAssertEqual(repo.stars, 6)
             XCTAssertEqual(repo.forks, 2)
             XCTAssertEqual(repo.watchers, 6)
+            
+            XCTAssertNotNil(repo.owner)
+            XCTAssertEqual(repo.owner?.id, "67184")
+            XCTAssertEqual(repo.owner?.login, "insidegui")
+            XCTAssertEqual(repo.owner?.avatar, "https://avatars.githubusercontent.com/u/67184?v=3")
         }
     }
     

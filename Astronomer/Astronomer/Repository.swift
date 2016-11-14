@@ -19,4 +19,6 @@ struct Repository {
     let forks: Int
     let watchers: Int
     
+    let owner: User?
+    
 }

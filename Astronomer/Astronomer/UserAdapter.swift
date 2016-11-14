@@ -50,7 +50,8 @@ final class UserAdapter: Adapter<JSON, User> {
             bio: input[User.Keys.bio].string,
             repos: input[User.Keys.repos].int,
             followers: input[User.Keys.followers].int,
-            following: input[User.Keys.following].int
+            following: input[User.Keys.following].int,
+            repositories: []
         )
         
         return .success(user)
