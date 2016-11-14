@@ -56,7 +56,8 @@ final class RepositoryAdapter: Adapter<JSON, Repository> {
             stars: input[Repository.Keys.stars].intValue,
             forks: input[Repository.Keys.forks].intValue,
             watchers: input[Repository.Keys.watchers].intValue,
-            owner: owner
+            owner: owner,
+            stargazers: []
         )
         
         return .success(repo)
