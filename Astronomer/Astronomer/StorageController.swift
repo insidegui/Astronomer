@@ -153,4 +153,15 @@ final class StorageController {
         return Observable.from(repository).map({ $0.repository })
     }
     
+    /// Fetch a repository's stargazers
+    func stargazers(for repository: Repository) -> Observable<[User]> {
+        guard let realmRepository = self.realm().object(ofType: RealmRepository.self, forPrimaryKey: repository.id) else {
+            return Observable<[User]>.error(StorageError.notFound("Repository not found with id \(repository.id)"))
+        }
+        
+        return Observable.from(realmRepository.stargazers).map { realmUsers -> [User] in
+            return realmUsers.map({ $0.user })
+        }
+    }
+    
 }
