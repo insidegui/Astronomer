@@ -173,6 +173,17 @@ class AstronomerTests: XCTestCase {
         }
     }
     
+    private func repositoriesForStorageTests() -> [Repository] {
+        let json = JSON(data: self.userReposData)
+        let result = RepositoriesAdapter(input: json).adapt()
+        
+        switch result {
+        case .success(let repos):
+            return repos
+        default: return []
+        }
+    }
+    
     func testRealmUserStorage() {
         let user = userForStorageTests!
         
@@ -258,7 +269,46 @@ class AstronomerTests: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 50.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
+    }
+    
+    func testOwnerInfoStorageUpdate() {
+        // when a user's data is updated, the owner property for the corresponding repositories should also be updated
+        
+        let repositories = repositoriesForStorageTests()
+        
+        let expectation = self.expectation(description: "Test repository owner info")
+        
+        storage.store(repositories: repositories) { error in
+            XCTAssertNil(error)
+            
+            // complete user record
+            
+            let user = self.userForStorageTests!
+            self.storage.store(users: [user]) { userError in
+                XCTAssertNil(userError)
+                
+                let realm = self.storage.realm()
+                let repositories = realm.objects(RealmRepository.self)
+                
+                XCTAssertEqual(repositories.first?.owner?.id, "67184")
+                XCTAssertEqual(repositories.first?.owner?.login, "insidegui")
+                XCTAssertEqual(repositories.first?.owner?.email, "insidegui@gmail.com")
+                XCTAssertEqual(repositories.first?.owner?.name, "Guilherme Rambo")
+                XCTAssertEqual(repositories.first?.owner?.company, "FAKECOMPANYFORTESTS")
+                XCTAssertEqual(repositories.first?.owner?.location, "Brazil")
+                XCTAssertEqual(repositories.first?.owner?.blog, "twitter.com/_inside")
+                XCTAssertEqual(repositories.first?.owner?.avatar, "https://avatars.githubusercontent.com/u/67184?v=3")
+                XCTAssertEqual(repositories.first?.owner?.bio, "Mac and iOS developer. Maker of WWDC for macOS, @BrowserFreedom, PodcastMenu @chibistudioapp and a bunch of other stuff.")
+                XCTAssertEqual(repositories.first?.owner?.repos, 79)
+                XCTAssertEqual(repositories.first?.owner?.followers, 399)
+                XCTAssertEqual(repositories.first?.owner?.following, 25)
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 10.0, handler: nil)
     }
     
 }
