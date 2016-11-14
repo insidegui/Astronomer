@@ -21,7 +21,7 @@ final class RealmRepository: Object {
     dynamic var watchers: Int32 = 0
     
     dynamic var owner: RealmUser?
-    let stargazers = List<RealmUser>()
+    var stargazers = List<RealmUser>()
     
     override static func indexedProperties() -> [String] {
         return ["name", "fullName", "tagline"]
@@ -35,7 +35,7 @@ final class RealmRepository: Object {
 
 extension RealmRepository {
     
-    convenience init(repository: Repository, owner: RealmUser? = nil) {
+    convenience init(repository: Repository, owner: RealmUser? = nil, stargazers: [RealmUser] = []) {
         self.init()
         
         self.id = repository.id
@@ -48,6 +48,7 @@ extension RealmRepository {
 		self.watchers = Int32(repository.watchers)
         
         self.owner = owner
+        self.stargazers = List(stargazers)
     }
     
 	var repository: Repository {

@@ -184,6 +184,17 @@ class AstronomerTests: XCTestCase {
         }
     }
     
+    private func stargazersForStorageTests() -> [User] {
+        let json = JSON(data: self.repoStargazersData)
+        let result = UsersAdapter(input: json).adapt()
+        
+        switch result {
+        case .success(let users):
+            return users
+        default: return []
+        }
+    }
+    
     func testRealmUserStorage() {
         let user = userForStorageTests!
         
@@ -309,6 +320,34 @@ class AstronomerTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 10.0, handler: nil)
+    }
+    
+    func testStargazersStorage() {
+        var repository = repositoryForStorageTests()!
+        
+        let expectation = self.expectation(description: "Store repository stargazers")
+        
+        storage.store(repositories: [repository]) { error in
+            XCTAssertNil(error)
+            
+            let stargazers = self.stargazersForStorageTests()
+            
+            repository.stargazers = stargazers
+            
+            self.storage.store(repositories: [repository]) { error in
+                XCTAssertNil(error)
+                
+                let repo = self.storage.realm().objects(RealmRepository.self).first!
+                XCTAssertEqual(repo.stargazers.count, 30)
+                XCTAssertEqual(repo.stargazers.first?.id, "67184")
+                
+                XCTAssertEqual(repo.stargazers.first?.user.id, "67184")
+                
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
 }

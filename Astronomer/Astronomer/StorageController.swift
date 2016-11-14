@@ -11,7 +11,8 @@ import RealmSwift
 import RxSwift
 
 enum StorageError: Error {
-    case notFound
+    case notFound(String?)
+    case exception(Error)
 }
 
 final class StorageController {
@@ -30,7 +31,7 @@ final class StorageController {
     
     // MARK: - Write
     
-    func store(users: [User], completion: @escaping (Error?) -> ()) {
+    func store(users: [User], completion: @escaping (StorageError?) -> ()) {
         queue.async {
             let realmUsers = users.map(RealmUser.init)
             do {
@@ -42,30 +43,30 @@ final class StorageController {
                 
                 completion(nil)
             } catch {
-                completion(error)
+                completion(.exception(error))
             }
         }
     }
     
-    func store(repositories: [Repository], completion: @escaping (Error?) -> ()) {
+    func store(repositories: [Repository], completion: @escaping (StorageError?) -> ()) {
         queue.async {
             let realm = self.realm()
             
             do {
                 let realmRepositories = try repositories.map { repository -> RealmRepository in
-                    // try to find existing user record for this repo's owner
-                    var realmOwner = realm.object(ofType: RealmUser.self, forPrimaryKey: repository.owner?.id)
+                    // fetch or create user record for owner
+                    let realmOwner = try self.fetchOrCreate(type: RealmUser.self, primaryKey: repository.owner?.id) {
+                        return RealmUser(user: repository.owner!)
+                    }
                     
-                    if realmOwner == nil {
-                        // owner record doesn't exist, create one
-                        realmOwner = RealmUser(user: repository.owner!)
-                        
-                        try realm.write {
-                            realm.add(realmOwner!)
+                    // fetch or create user records for stargazers
+                    let realmStargazers = try repository.stargazers.map { stargazer -> RealmUser in
+                        return try self.fetchOrCreate(type: RealmUser.self, primaryKey: stargazer.id) {
+                            return RealmUser(user: stargazer)
                         }
                     }
                     
-                    return RealmRepository(repository: repository, owner: realmOwner)
+                    return RealmRepository(repository: repository, owner: realmOwner, stargazers: realmStargazers)
                 }
                 
                 try realm.write {
@@ -74,8 +75,34 @@ final class StorageController {
                 
                 completion(nil)
             } catch {
-                completion(error)
+                completion(.exception(error))
             }
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    /// Fetch or create an object
+    ///
+    /// - Parameters:
+    ///   - type: The type of object to be fetched / created
+    ///   - primaryKey: The value of the primary key to be used to find an existing object
+    ///   - create: A block that returns a new object in case an existing one can't be found
+    /// - Returns: An object of the specified type
+    /// - Throws: A Realm error if the object doesn't exist and can't be created
+    private func fetchOrCreate<T: Object, K>(type: T.Type, primaryKey: K, create: () -> T) throws -> T {
+        let realm = self.realm()
+        
+        if let object = realm.object(ofType: type, forPrimaryKey: primaryKey) {
+            return object
+        } else {
+            let object = create()
+            
+            try realm.write {
+                realm.add(object)
+            }
+            
+            return object
         }
     }
     
@@ -93,7 +120,7 @@ final class StorageController {
     /// Fetch a single user based on login
     func user(withLogin login: String) -> Observable<User> {
         guard let user = self.realm().objects(RealmUser.self).filter("login == '\(login)'").first else {
-            return Observable<User>.error(StorageError.notFound)
+            return Observable<User>.error(StorageError.notFound("User not found with login \(login)"))
         }
         
         return Observable.from(user).map({ $0.user })
@@ -102,7 +129,7 @@ final class StorageController {
     /// Fetch a single user based on id
     func user(withId id: String) -> Observable<User> {
         guard let user = self.realm().object(ofType: RealmUser.self, forPrimaryKey: id) else {
-            return Observable<User>.error(StorageError.notFound)
+            return Observable<User>.error(StorageError.notFound("User not found with id \(id)"))
         }
         
         return Observable.from(user).map({ $0.user })
@@ -111,7 +138,7 @@ final class StorageController {
     /// Fetch a single repository based on name
     func repository(named name: String) -> Observable<Repository> {
         guard let repository = self.realm().objects(RealmRepository.self).filter("name == '\(name)'").first else {
-            return Observable<Repository>.error(StorageError.notFound)
+            return Observable<Repository>.error(StorageError.notFound("Repository not found with name \(name)"))
         }
         
         return Observable.from(repository).map({ $0.repository })
@@ -120,7 +147,7 @@ final class StorageController {
     /// Fetch a single repository based on id
     func repository(withId id: String) -> Observable<Repository> {
         guard let repository = self.realm().object(ofType: RealmRepository.self, forPrimaryKey: id) else {
-            return Observable<Repository>.error(StorageError.notFound)
+            return Observable<Repository>.error(StorageError.notFound("Repository not found with id \(id)"))
         }
         
         return Observable.from(repository).map({ $0.repository })

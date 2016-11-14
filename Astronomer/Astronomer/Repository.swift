@@ -20,6 +20,6 @@ struct Repository {
     let watchers: Int
     
     let owner: User?
-    let stargazers: [User]
+    var stargazers: [User]
     
 }
