@@ -8,6 +8,11 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
+
+enum StorageError: Error {
+    case notFound
+}
 
 final class StorageController {
     
@@ -48,6 +53,14 @@ final class StorageController {
             } catch {
                 completion(error)
             }
+        }
+    }
+    
+    func searchUsers(with query: String) -> Observable<[User]> {
+        let users = self.realm().objects(RealmUser.self).filter("login CONTAINS[c] '\(query)'")
+        
+        return Observable.from(users).map { realmUsers in
+            return realmUsers.map({ $0.user })
         }
     }
     
