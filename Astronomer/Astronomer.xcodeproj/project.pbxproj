@@ -23,6 +23,8 @@
 		DD4372991DD8C4F8000D7900 /* RepoStargazers.json in Resources */ = {isa = PBXBuildFile; fileRef = DD4372981DD8C4F8000D7900 /* RepoStargazers.json */; };
 		DD4BAE651DD961D5008E44ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4BAE631DD961D5008E44ED /* RxCocoa.framework */; };
 		DD4BAE661DD961D5008E44ED /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4BAE641DD961D5008E44ED /* RxSwift.framework */; };
+		DD4BAE6A1DD96532008E44ED /* RealmObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4BAE681DD96532008E44ED /* RealmObserver.swift */; };
+		DD4BAE6B1DD96532008E44ED /* RxRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4BAE691DD96532008E44ED /* RxRealm.swift */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
 		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
@@ -70,6 +72,8 @@
 		DD4372981DD8C4F8000D7900 /* RepoStargazers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RepoStargazers.json; path = Data/RepoStargazers.json; sourceTree = "<group>"; };
 		DD4BAE631DD961D5008E44ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		DD4BAE641DD961D5008E44ED /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		DD4BAE681DD96532008E44ED /* RealmObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmObserver.swift; path = ../../Vendor/RxRealm/Pod/Classes/RealmObserver.swift; sourceTree = "<group>"; };
+		DD4BAE691DD96532008E44ED /* RxRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxRealm.swift; path = ../../Vendor/RxRealm/Pod/Classes/RxRealm.swift; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
 		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +155,15 @@
 			name = "Test Data";
 			sourceTree = "<group>";
 		};
+		DD4BAE671DD96525008E44ED /* Realm+Rx */ = {
+			isa = PBXGroup;
+			children = (
+				DD4BAE681DD96532008E44ED /* RealmObserver.swift */,
+				DD4BAE691DD96532008E44ED /* RxRealm.swift */,
+			);
+			name = "Realm+Rx";
+			sourceTree = "<group>";
+		};
 		DDA23CBE1DD4D4D10002270C = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +199,7 @@
 		DDA23CDC1DD4D4E20002270C /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				DD4BAE671DD96525008E44ED /* Realm+Rx */,
 				DDA5020D1DD4DA5A00B78F5D /* Adapters */,
 				DDA23CEA1DD4D8B20002270C /* Models */,
 				DDA23CE21DD4D5000002270C /* Storage */,
@@ -443,8 +457,10 @@
 				DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */,
 				DDA502121DD4DABD00B78F5D /* Result.swift in Sources */,
 				DD1D55E01DD4DE1C00ABC3DB /* UserAdapter.swift in Sources */,
+				DD4BAE6A1DD96532008E44ED /* RealmObserver.swift in Sources */,
 				DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */,
 				DDFD0DE81DD902A900A322C4 /* StorageController.swift in Sources */,
+				DD4BAE6B1DD96532008E44ED /* RxRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

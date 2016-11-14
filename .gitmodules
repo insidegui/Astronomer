@@ -1,0 +1,3 @@
+[submodule "Vendor/RxRealm"]
+	path = Vendor/RxRealm
+	url = https://github.com/RxSwiftCommunity/RxRealm.git
