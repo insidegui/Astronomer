@@ -1,3 +1,5 @@
+github "RxSwiftCommunity/RxRealm" "1.0.5"
+github "ReactiveX/RxSwift" "3.0.1"
 github "SwiftyJSON/SwiftyJSON" "3.1.2"
 github "realm/realm-cocoa" "v2.0.3"
 github "bustoutsolutions/siesta" "1.0-rc.3"

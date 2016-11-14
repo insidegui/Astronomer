@@ -21,6 +21,8 @@
 		DD4372951DD8BDFF000D7900 /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4372941DD8BDFF000D7900 /* GithubAPI.swift */; };
 		DD4372971DD8C494000D7900 /* UsersAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4372961DD8C494000D7900 /* UsersAdapter.swift */; };
 		DD4372991DD8C4F8000D7900 /* RepoStargazers.json in Resources */ = {isa = PBXBuildFile; fileRef = DD4372981DD8C4F8000D7900 /* RepoStargazers.json */; };
+		DD4BAE651DD961D5008E44ED /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4BAE631DD961D5008E44ED /* RxCocoa.framework */; };
+		DD4BAE661DD961D5008E44ED /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4BAE641DD961D5008E44ED /* RxSwift.framework */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
 		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
@@ -66,6 +68,8 @@
 		DD4372941DD8BDFF000D7900 /* GithubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
 		DD4372961DD8C494000D7900 /* UsersAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersAdapter.swift; sourceTree = "<group>"; };
 		DD4372981DD8C4F8000D7900 /* RepoStargazers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RepoStargazers.json; path = Data/RepoStargazers.json; sourceTree = "<group>"; };
+		DD4BAE631DD961D5008E44ED /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		DD4BAE641DD961D5008E44ED /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
 		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +108,8 @@
 				DD4372931DD8BD51000D7900 /* Siesta.framework in Frameworks */,
 				DDB2559F1DD8DDB300AE1A8E /* Realm.framework in Frameworks */,
 				DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */,
+				DD4BAE651DD961D5008E44ED /* RxCocoa.framework in Frameworks */,
+				DD4BAE661DD961D5008E44ED /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +119,8 @@
 		DD1D55DB1DD4DDA000ABC3DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD4BAE631DD961D5008E44ED /* RxCocoa.framework */,
+				DD4BAE641DD961D5008E44ED /* RxSwift.framework */,
 				DDB2559D1DD8DDB300AE1A8E /* Realm.framework */,
 				DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */,
 				DD4372921DD8BD51000D7900 /* Siesta.framework */,
@@ -394,6 +402,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Siesta.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			name = Carthage;
 			outputPaths = (
