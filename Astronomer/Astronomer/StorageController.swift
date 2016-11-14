@@ -28,6 +28,8 @@ final class StorageController {
         self.configuration = configuration
     }
     
+    // MARK: - Write
+    
     func store(users: [User], completion: @escaping (Error?) -> ()) {
         queue.async {
             let realmUsers = users.map(RealmUser.init)
@@ -77,12 +79,51 @@ final class StorageController {
         }
     }
     
+    // MARK: - Fetch
+    
+    /// Search for users
     func searchUsers(with query: String) -> Observable<[User]> {
         let users = self.realm().objects(RealmUser.self).filter("login CONTAINS[c] '\(query)'")
         
         return Observable.from(users).map { realmUsers in
             return realmUsers.map({ $0.user })
         }
+    }
+    
+    /// Fetch a single user based on login
+    func user(withLogin login: String) -> Observable<User> {
+        guard let user = self.realm().objects(RealmUser.self).filter("login == '\(login)'").first else {
+            return Observable<User>.error(StorageError.notFound)
+        }
+        
+        return Observable.from(user).map({ $0.user })
+    }
+    
+    /// Fetch a single user based on id
+    func user(withId id: String) -> Observable<User> {
+        guard let user = self.realm().object(ofType: RealmUser.self, forPrimaryKey: id) else {
+            return Observable<User>.error(StorageError.notFound)
+        }
+        
+        return Observable.from(user).map({ $0.user })
+    }
+    
+    /// Fetch a single repository based on name
+    func repository(named name: String) -> Observable<Repository> {
+        guard let repository = self.realm().objects(RealmRepository.self).filter("name == '\(name)'").first else {
+            return Observable<Repository>.error(StorageError.notFound)
+        }
+        
+        return Observable.from(repository).map({ $0.repository })
+    }
+    
+    /// Fetch a single repository based on id
+    func repository(withId id: String) -> Observable<Repository> {
+        guard let repository = self.realm().object(ofType: RealmRepository.self, forPrimaryKey: id) else {
+            return Observable<Repository>.error(StorageError.notFound)
+        }
+        
+        return Observable.from(repository).map({ $0.repository })
     }
     
 }
