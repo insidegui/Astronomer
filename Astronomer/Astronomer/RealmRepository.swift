@@ -20,6 +20,8 @@ final class RealmRepository: Object {
     dynamic var forks: Int32 = 0
     dynamic var watchers: Int32 = 0
     
+    dynamic var owner: RealmUser?
+    
     override static func indexedProperties() -> [String] {
         return ["name", "fullName", "tagline"]
     }
@@ -32,7 +34,7 @@ final class RealmRepository: Object {
 
 extension RealmRepository {
     
-    convenience init(repository: Repository) {
+    convenience init(repository: Repository, owner: RealmUser? = nil) {
         self.init()
         
         self.id = repository.id
@@ -43,6 +45,8 @@ extension RealmRepository {
         self.stars = Int32(repository.stars)
         self.forks = Int32(repository.forks)
 		self.watchers = Int32(repository.watchers)
+        
+        self.owner = owner
     }
     
 	var repository: Repository {
@@ -53,7 +57,8 @@ extension RealmRepository {
             description: tagline,
             stars: Int(stars),
             forks: Int(forks),
-            watchers: Int(watchers)
+            watchers: Int(watchers),
+            owner: self.owner?.user
         )
 	}
 	

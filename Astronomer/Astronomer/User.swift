@@ -24,6 +24,4 @@ struct User {
     let followers: Int?
     let following: Int?
     
-    let repositories: [Repository]
-    
 }

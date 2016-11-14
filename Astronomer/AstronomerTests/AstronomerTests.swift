@@ -13,7 +13,7 @@ import RealmSwift
 
 class AstronomerTests: XCTestCase {
     
-    private var realm: Realm!
+    private var storage: StorageController!
     
     private class func url(for resource: String) -> URL {
         return Bundle(for: AstronomerTests.self).url(forResource: resource, withExtension: "json")!
@@ -33,14 +33,11 @@ class AstronomerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // reset database for each test
-        realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "test"))
+        storage = StorageController(configuration: Realm.Configuration(inMemoryIdentifier: "testrealm"))
     }
     
     override func tearDown() {
         super.tearDown()
-        
-        realm = nil
     }
     
     // MARK: - Adapter tests
@@ -179,59 +176,89 @@ class AstronomerTests: XCTestCase {
     func testRealmUserStorage() {
         let user = userForStorageTests!
         
-        try! realm.write { realm.add(RealmUser(user: user)) }
+        let expectation = self.expectation(description: "Store user")
         
-        let realmUser = realm.objects(RealmUser.self).first!
+        storage.store(users: [user]) { error in
+            XCTAssertNil(error)
+            
+            let realm = self.storage.realm()
+            
+            let realmUser = realm.objects(RealmUser.self).first!
+            
+            XCTAssertEqual(realmUser.id, user.id)
+            XCTAssertEqual(realmUser.login, user.login)
+            XCTAssertEqual(realmUser.email, user.email)
+            XCTAssertEqual(realmUser.name, user.name)
+            XCTAssertEqual(realmUser.company, user.company)
+            XCTAssertEqual(realmUser.location, user.location)
+            XCTAssertEqual(realmUser.blog, user.blog)
+            XCTAssertEqual(realmUser.avatar, user.avatar)
+            XCTAssertEqual(realmUser.bio, user.bio)
+            XCTAssertEqual(realmUser.repos, Int32(user.repos ?? 0))
+            XCTAssertEqual(realmUser.followers, Int32(user.followers ?? 0))
+            XCTAssertEqual(realmUser.following, Int32(user.following ?? 0))
+            
+            XCTAssertEqual(realmUser.user.id, user.id)
+            XCTAssertEqual(realmUser.user.login, user.login)
+            XCTAssertEqual(realmUser.user.email, user.email)
+            XCTAssertEqual(realmUser.user.name, user.name)
+            XCTAssertEqual(realmUser.user.company, user.company)
+            XCTAssertEqual(realmUser.user.location, user.location)
+            XCTAssertEqual(realmUser.user.blog, user.blog)
+            XCTAssertEqual(realmUser.user.avatar, user.avatar)
+            XCTAssertEqual(realmUser.user.bio, user.bio)
+            XCTAssertEqual(realmUser.user.repos, user.repos)
+            XCTAssertEqual(realmUser.user.followers, user.followers)
+            XCTAssertEqual(realmUser.user.following, user.following)
+            
+            expectation.fulfill()
+        }
         
-        XCTAssertEqual(realmUser.id, user.id)
-        XCTAssertEqual(realmUser.login, user.login)
-        XCTAssertEqual(realmUser.email, user.email)
-        XCTAssertEqual(realmUser.name, user.name)
-        XCTAssertEqual(realmUser.company, user.company)
-        XCTAssertEqual(realmUser.location, user.location)
-        XCTAssertEqual(realmUser.blog, user.blog)
-        XCTAssertEqual(realmUser.avatar, user.avatar)
-        XCTAssertEqual(realmUser.bio, user.bio)
-        XCTAssertEqual(realmUser.repos, Int32(user.repos ?? 0))
-        XCTAssertEqual(realmUser.followers, Int32(user.followers ?? 0))
-        XCTAssertEqual(realmUser.following, Int32(user.following ?? 0))
-        
-        XCTAssertEqual(realmUser.user.id, user.id)
-        XCTAssertEqual(realmUser.user.login, user.login)
-        XCTAssertEqual(realmUser.user.email, user.email)
-        XCTAssertEqual(realmUser.user.name, user.name)
-        XCTAssertEqual(realmUser.user.company, user.company)
-        XCTAssertEqual(realmUser.user.location, user.location)
-        XCTAssertEqual(realmUser.user.blog, user.blog)
-        XCTAssertEqual(realmUser.user.avatar, user.avatar)
-        XCTAssertEqual(realmUser.user.bio, user.bio)
-        XCTAssertEqual(realmUser.user.repos, user.repos)
-        XCTAssertEqual(realmUser.user.followers, user.followers)
-        XCTAssertEqual(realmUser.user.following, user.following)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
     func testRealmRepositoryStorage() {
         let repository = repositoryForStorageTests()!
         
-        try! realm.write { realm.add(RealmRepository(repository: repository)) }
+        let expectation = self.expectation(description: "Store repository")
         
-        let realmRepo = realm.objects(RealmRepository.self).first!
-		
-		XCTAssertEqual(realmRepo.id, repository.id)
-		XCTAssertEqual(realmRepo.name, repository.name)
-		XCTAssertEqual(realmRepo.fullName, repository.fullName)
-		XCTAssertEqual(realmRepo.tagline, repository.description)
-		XCTAssertEqual(realmRepo.stars, Int32(repository.stars))
-		XCTAssertEqual(realmRepo.forks, Int32(repository.forks))
-		XCTAssertEqual(realmRepo.watchers, Int32(repository.watchers))
-		
-		XCTAssertEqual(realmRepo.repository.id, repository.id)
-		XCTAssertEqual(realmRepo.repository.name, repository.name)
-		XCTAssertEqual(realmRepo.repository.fullName, repository.fullName)
-		XCTAssertEqual(realmRepo.repository.description, repository.description)
-		XCTAssertEqual(realmRepo.repository.stars, repository.stars)
-		XCTAssertEqual(realmRepo.repository.forks, repository.forks)
-		XCTAssertEqual(realmRepo.repository.watchers, repository.watchers)
+        storage.store(repositories: [repository]) { error in
+            XCTAssertNil(error)
+            
+            let realm = self.storage.realm()
+            
+            let realmRepo = realm.objects(RealmRepository.self).first!
+            
+            XCTAssertEqual(realmRepo.id, repository.id)
+            XCTAssertEqual(realmRepo.name, repository.name)
+            XCTAssertEqual(realmRepo.fullName, repository.fullName)
+            XCTAssertEqual(realmRepo.tagline, repository.description)
+            XCTAssertEqual(realmRepo.stars, Int32(repository.stars))
+            XCTAssertEqual(realmRepo.forks, Int32(repository.forks))
+            XCTAssertEqual(realmRepo.watchers, Int32(repository.watchers))
+            
+            XCTAssertNotNil(realmRepo.owner)
+            XCTAssertEqual(realmRepo.owner?.id, "67184")
+            XCTAssertEqual(realmRepo.owner?.login, "insidegui")
+            XCTAssertEqual(realmRepo.owner?.avatar, "https://avatars.githubusercontent.com/u/67184?v=3")
+            
+            XCTAssertEqual(realmRepo.repository.id, repository.id)
+            XCTAssertEqual(realmRepo.repository.name, repository.name)
+            XCTAssertEqual(realmRepo.repository.fullName, repository.fullName)
+            XCTAssertEqual(realmRepo.repository.description, repository.description)
+            XCTAssertEqual(realmRepo.repository.stars, repository.stars)
+            XCTAssertEqual(realmRepo.repository.forks, repository.forks)
+            XCTAssertEqual(realmRepo.repository.watchers, repository.watchers)
+            
+            XCTAssertNotNil(realmRepo.repository.owner)
+            XCTAssertEqual(realmRepo.repository.owner?.id, "67184")
+            XCTAssertEqual(realmRepo.repository.owner?.login, "insidegui")
+            XCTAssertEqual(realmRepo.repository.owner?.avatar, "https://avatars.githubusercontent.com/u/67184?v=3")
+            
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 50.0, handler: nil)
     }
     
 }
