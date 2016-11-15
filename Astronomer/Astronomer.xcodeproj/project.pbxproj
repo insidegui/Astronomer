@@ -42,6 +42,9 @@
 		DDA502121DD4DABD00B78F5D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA502111DD4DABD00B78F5D /* Result.swift */; };
 		DDB2559F1DD8DDB300AE1A8E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559D1DD8DDB300AE1A8E /* Realm.framework */; };
 		DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */; };
+		DDB789D91DDBC10800097FFC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB789D81DDBC10800097FFC /* UserViewModel.swift */; };
+		DDCE26281DDBC69200DE59DB /* IGListDiff.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDCE26271DDBC69200DE59DB /* IGListDiff.framework */; };
+		DDCE262A1DDBC7BB00DE59DB /* UITableView+Diff.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCE26291DDBC7BB00DE59DB /* UITableView+Diff.swift */; };
 		DDD515BD1DDB6C1200E0D84E /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD515BC1DDB6C1200E0D84E /* Storage.swift */; };
 		DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */; };
 		DDFD0DE61DD8FF7A00A322C4 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFD0DE51DD8FF7A00A322C4 /* RealmRepository.swift */; };
@@ -57,6 +60,19 @@
 			remoteInfo = Astronomer;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDB789E41DDBC13300097FFC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DD1D55DC1DD4DDA000ABC3DB /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
@@ -97,6 +113,9 @@
 		DDA502111DD4DABD00B78F5D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DDB2559D1DD8DDB300AE1A8E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		DDB2559E1DD8DDB300AE1A8E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		DDB789D81DDBC10800097FFC /* UserViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		DDCE26271DDBC69200DE59DB /* IGListDiff.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListDiff.framework; path = Carthage/Build/iOS/IGListDiff.framework; sourceTree = "<group>"; };
+		DDCE26291DDBC7BB00DE59DB /* UITableView+Diff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Diff.swift"; sourceTree = "<group>"; };
 		DDD515BC1DDB6C1200E0D84E /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DDFD0DE31DD8F6B500A322C4 /* RealmUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		DDFD0DE51DD8FF7A00A322C4 /* RealmRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
@@ -117,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1D55DD1DD4DDA000ABC3DB /* SwiftyJSON.framework in Frameworks */,
+				DDCE26281DDBC69200DE59DB /* IGListDiff.framework in Frameworks */,
 				DD4372931DD8BD51000D7900 /* Siesta.framework in Frameworks */,
 				DDB2559F1DD8DDB300AE1A8E /* Realm.framework in Frameworks */,
 				DDB255A01DD8DDB300AE1A8E /* RealmSwift.framework in Frameworks */,
@@ -131,6 +151,7 @@
 		DD1D55DB1DD4DDA000ABC3DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDCE26271DDBC69200DE59DB /* IGListDiff.framework */,
 				DD4BAE631DD961D5008E44ED /* RxCocoa.framework */,
 				DD4BAE641DD961D5008E44ED /* RxSwift.framework */,
 				DDB2559D1DD8DDB300AE1A8E /* Realm.framework */,
@@ -238,6 +259,7 @@
 		DDA23CDE1DD4D4EC0002270C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DDB789D71DDBC0FD00097FFC /* ViewModels */,
 				DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */,
 			);
 			name = Controllers;
@@ -246,6 +268,7 @@
 		DDA23CDF1DD4D4F10002270C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DDCE26291DDBC7BB00DE59DB /* UITableView+Diff.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -310,6 +333,14 @@
 			name = Adapters;
 			sourceTree = "<group>";
 		};
+		DDB789D71DDBC0FD00097FFC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DDB789D81DDBC10800097FFC /* UserViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		DDD515BB1DDB6BEA00E0D84E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +388,7 @@
 				DDA23CC41DD4D4D10002270C /* Frameworks */,
 				DDA23CC51DD4D4D10002270C /* Resources */,
 				DD1D55DE1DD4DDA900ABC3DB /* Carthage */,
+				DDB789E41DDBC13300097FFC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,6 +478,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/IGListDiff.framework",
 			);
 			name = Carthage;
 			outputPaths = (
@@ -485,6 +518,7 @@
 				DDFD0DE61DD8FF7A00A322C4 /* RealmRepository.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
 				DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */,
+				DDCE262A1DDBC7BB00DE59DB /* UITableView+Diff.swift in Sources */,
 				DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */,
 				DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */,
 				DDA502121DD4DABD00B78F5D /* Result.swift in Sources */,
@@ -492,6 +526,7 @@
 				DD4BAE6A1DD96532008E44ED /* RealmObserver.swift in Sources */,
 				DDA5020F1DD4DA8000B78F5D /* Adapter.swift in Sources */,
 				DDFD0DE81DD902A900A322C4 /* StorageController.swift in Sources */,
+				DDB789D91DDBC10800097FFC /* UserViewModel.swift in Sources */,
 				DD4BAE6B1DD96532008E44ED /* RxRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
