@@ -65,4 +65,21 @@ final class DataProvider {
         return storage.user(withLogin: login)
     }
     
+    func stargazers(for repository: Repository) -> Observable<[User]> {
+        if let ownerLogin = repository.owner?.login {
+            client.stargazers(for: repository.name, ownedBy: ownerLogin) { [weak self] result in
+                switch result {
+                case .success(let users):
+                    var repo = repository
+                    repo.stargazers = users
+                    self?.storage.store(repositories: [repo], completion: nil)
+                case .error(let error):
+                    self?.error.value = error
+                }
+            }
+        }
+        
+        return storage.stargazers(for: repository)
+    }
+    
 }
