@@ -21,4 +21,22 @@ final class DataProvider {
         self.storage = storage
     }
     
+    /// You can subscribe to this variable to get informed when an error occurs on any DataProvider operation
+    var error = Variable<Error?>(nil)
+    
+    // MARK: - Data operations
+    
+    func searchUsers(with query: String) -> Observable<[User]> {
+        client.searchUsers(query: query) { [weak self] result in
+            switch result {
+            case .success(let results):
+                self?.storage.store(users: results.items, completion: nil)
+            case .error(let error):
+                self?.error.value = error
+            }
+        }
+        
+        return storage.searchUsers(with: query)
+    }
+    
 }
