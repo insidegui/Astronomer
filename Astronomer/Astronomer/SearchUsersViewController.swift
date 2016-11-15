@@ -28,6 +28,8 @@ class SearchUsersViewController: UITableViewController {
     private lazy var searchController: UISearchController = {
         let s = UISearchController(searchResultsController: nil)
         
+        s.searchBar.barTintColor = Appearance.searchBarTintColor
+        
         s.dimsBackgroundDuringPresentation = false
         
         return s
