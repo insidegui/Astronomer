@@ -17,8 +17,8 @@ enum StorageError: Error {
 /// Protocol specifying the interface for a class that can store and retrieve models for the Astronomer app
 protocol Storage: class {
     
-    func store(users: [User], completion: @escaping (StorageError?) -> ())
-    func store(repositories: [Repository], completion: @escaping (StorageError?) -> ())
+    func store(users: [User], completion: ((StorageError?) -> ())?)
+    func store(repositories: [Repository], completion: ((StorageError?) -> ())?)
     
     func searchUsers(with query: String) -> Observable<[User]>
     func user(withLogin login: String) -> Observable<User>

@@ -26,7 +26,7 @@ final class StorageController: Storage {
     
     // MARK: - Write
     
-    func store(users: [User], completion: @escaping (StorageError?) -> ()) {
+    func store(users: [User], completion: ((StorageError?) -> ())?) {
         queue.async {
             let realmUsers = users.map(RealmUser.init)
             do {
@@ -36,14 +36,14 @@ final class StorageController: Storage {
                     realm.add(realmUsers, update: true)
                 }
                 
-                completion(nil)
+                completion?(nil)
             } catch {
-                completion(.exception(error))
+                completion?(.exception(error))
             }
         }
     }
     
-    func store(repositories: [Repository], completion: @escaping (StorageError?) -> ()) {
+    func store(repositories: [Repository], completion: ((StorageError?) -> ())?) {
         queue.async {
             let realm = self.realm()
             
@@ -68,9 +68,9 @@ final class StorageController: Storage {
                     realm.add(realmRepositories, update: true)
                 }
                 
-                completion(nil)
+                completion?(nil)
             } catch {
-                completion(.exception(error))
+                completion?(.exception(error))
             }
         }
     }
