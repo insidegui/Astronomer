@@ -10,6 +10,8 @@ import UIKit
 
 class SearchUsersViewController: UITableViewController {
 
+    private lazy var client = GithubClient()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,51 @@ class SearchUsersViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+//        client.searchUsers(query: "inside") { result in
+//            switch result {
+//            case .error(let error):
+//                NSLog("Search error: \(error)")
+//            case .success(let searchResult):
+//                NSLog("\(searchResult.items)")
+//            }
+//        }
+        
+//        client.repositories(by: "insidegui") { result in
+//            switch result {
+//            case .error(let error):
+//                NSLog("API error: \(error)")
+//            case .success(let data):
+//                NSLog("\(data)")
+//            }
+//        }
+        
+//        client.user(with: "insidegui") { result in
+//            switch result {
+//            case .error(let error):
+//                NSLog("API error: \(error)")
+//            case .success(let data):
+//                NSLog("\(data)")
+//            }
+//        }
+        
+//        client.repository(by: "insidegui", named: "WWDC") { result in
+//            switch result {
+//            case .error(let error):
+//                NSLog("API error: \(error)")
+//            case .success(let data):
+//                NSLog("\(data)")
+//            }
+//        }
+        
+        client.stargazers(for: "WWDC", ownedBy: "insidegui") { result in
+            switch result {
+            case .error(let error):
+                NSLog("API error: \(error)")
+            case .success(let data):
+                NSLog("\(data)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

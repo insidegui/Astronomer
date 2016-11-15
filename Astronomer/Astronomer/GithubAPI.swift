@@ -72,7 +72,7 @@ final class GithubAPI {
     ///
     /// - Parameter login: The user's login
     /// - Returns: A resource containing the user
-    func user(login: String) -> Resource {
+    func user(with login: String) -> Resource {
         return service
             .resource("/users")
             .child(login.lowercased())

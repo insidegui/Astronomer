@@ -10,12 +10,7 @@ import Foundation
 import RealmSwift
 import RxSwift
 
-enum StorageError: Error {
-    case notFound(String?)
-    case exception(Error)
-}
-
-final class StorageController {
+final class StorageController: Storage {
     
     private let configuration: Realm.Configuration
     
