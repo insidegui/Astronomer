@@ -52,4 +52,17 @@ final class DataProvider {
         return storage.repositories(by: user)
     }
     
+    func user(with login: String) -> Observable<User> {
+        client.user(with: login) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.storage.store(users: [user], completion: nil)
+            case .error(let error):
+                self?.error.value = error
+            }
+        }
+        
+        return storage.user(withLogin: login)
+    }
+    
 }
