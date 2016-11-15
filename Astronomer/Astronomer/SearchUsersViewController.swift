@@ -7,92 +7,82 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class SearchUsersViewController: UITableViewController {
 
-    private lazy var client = GithubClient()
+    private lazy var client: GithubClient = GithubClient()
+    private lazy var storage: StorageController = StorageController()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    private lazy var provider: DataProvider = {
+        return DataProvider(client: self.client, storage: self.storage)
+    }()
+    
+    private let disposeBag = DisposeBag()
+    
+    private struct Constants {
+        static let cellIdentifier = "cell"
+    }
+    
+    private lazy var searchController: UISearchController = {
+        let s = UISearchController(searchResultsController: nil)
         
-//        client.searchUsers(query: "inside") { result in
-//            switch result {
-//            case .error(let error):
-//                NSLog("Search error: \(error)")
-//            case .success(let searchResult):
-//                NSLog("\(searchResult.items)")
-//            }
-//        }
+        s.dimsBackgroundDuringPresentation = false
         
-//        client.repositories(by: "insidegui") { result in
-//            switch result {
-//            case .error(let error):
-//                NSLog("API error: \(error)")
-//            case .success(let data):
-//                NSLog("\(data)")
-//            }
-//        }
-        
-//        client.user(with: "insidegui") { result in
-//            switch result {
-//            case .error(let error):
-//                NSLog("API error: \(error)")
-//            case .success(let data):
-//                NSLog("\(data)")
-//            }
-//        }
-        
-//        client.repository(by: "insidegui", named: "WWDC") { result in
-//            switch result {
-//            case .error(let error):
-//                NSLog("API error: \(error)")
-//            case .success(let data):
-//                NSLog("\(data)")
-//            }
-//        }
-        
-        client.stargazers(for: "WWDC", ownedBy: "insidegui") { result in
-            switch result {
-            case .error(let error):
-                NSLog("API error: \(error)")
-            case .success(let data):
-                NSLog("\(data)")
-            }
+        return s
+    }()
+    
+    private var userViewModels = [UserViewModel]() {
+        didSet {
+            tableView.reload(oldData: oldValue, newData: userViewModels)
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        definesPresentationContext = true
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        tableView.tableHeaderView = searchController.searchBar
+        
+        // map search text to a sequence of users
+        let searchObservable = searchController.searchBar.rx.text.throttle(0.5, scheduler: MainScheduler.instance).flatMap { (text: String?) -> Observable<[User]> in
+            if let query = text, query.characters.count > 2 {
+                return self.provider.searchUsers(with: query)
+            } else {
+                return Observable<[User]>.just([])
+            }
+        }
+        
+        // subscribe to the search results and update the userItems property when they change
+        searchObservable.observeOn(MainScheduler.instance).subscribe { event in
+            switch event {
+            case .next(let users):
+                self.userViewModels = users.map(UserViewModel.init)
+            default: break
+            }
+        }.addDisposableTo(self.disposeBag)
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return userViewModels.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text = userViewModels[indexPath.row].user.login
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
