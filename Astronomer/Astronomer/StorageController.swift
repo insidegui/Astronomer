@@ -30,10 +30,9 @@ final class StorageController: Storage {
         queue.async {
             let realmUsers = users.map(RealmUser.init)
             do {
-                let realm = self.realm()
-                
-                try realm.write {
-                    realm.add(realmUsers, update: true)
+                try self.insertOrUpdate(objects: realmUsers) { oldUser, newUser in
+                    // update old user record if it had no name and the new user has one
+                    return oldUser.name == nil && newUser.name != nil
                 }
                 
                 completion?(nil)
@@ -98,6 +97,52 @@ final class StorageController: Storage {
             }
             
             return object
+        }
+    }
+    
+    /// Inserts or updates the objects using the updateDecisionHandler to determine whether an update is necessary or not
+    ///
+    /// - Parameters:
+    ///   - object: The objects to insert or update
+    ///   - updateDecisionHandler: A block called for each object pair, should return true if the object should be updated and false if it shouldn't
+    ///   - oldObject: the existing object
+    ///   - newObject: the new object
+    /// - Throws: A Realm error if the object doesn't have a primary key or can't be updated/created
+    private func insertOrUpdate<T: Object>(objects: [T], updateDecisionHandler: @escaping (_ oldObject: T, _ newObject: T) -> Bool) throws {
+        try objects.forEach({ try self.insertOrUpdate(object: $0, updateDecisionHandler: updateDecisionHandler) })
+    }
+    
+    /// Inserts or updates the object using the updateDecisionHandler to determine whether an update is necessary or not
+    ///
+    /// - Parameters:
+    ///   - object: The object to insert or update
+    ///   - updateDecisionHandler: A block that returns true if the object should be updated and false if it shouldn't
+    ///   - oldObject: the existing object
+    ///   - newObject: the new object
+    /// - Throws: A Realm error if the object doesn't have a primary key or can't be updated/created
+    private func insertOrUpdate<T: Object>(object: T, updateDecisionHandler: @escaping (_ oldObject: T, _ newObject: T) -> Bool) throws {
+        let realm = self.realm()
+        
+        guard let primaryKey = T.primaryKey() else {
+            fatalError("insertOrUpdate can't be used for objects without a primary key")
+        }
+        
+        guard let primaryKeyValue = object.value(forKey: primaryKey) else {
+            fatalError("insertOrUpdate can't be used for objects without a primary key")
+        }
+        
+        if let existingObject = realm.object(ofType: T.self, forPrimaryKey: primaryKeyValue) {
+            // object already exists, call updateDecisionHandler to determine whether we should update it or not
+            if updateDecisionHandler(existingObject, object) {
+                try realm.write {
+                    realm.add(object, update: true)
+                }
+            }
+        } else {
+            // object doesn't exist, just add it
+            try realm.write {
+                realm.add(object)
+            }
         }
     }
     
