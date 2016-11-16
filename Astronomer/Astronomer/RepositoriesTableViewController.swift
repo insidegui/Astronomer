@@ -9,6 +9,10 @@
 import UIKit
 import RxSwift
 
+protocol RepositoriesTableViewControllerDelegate: class {
+    func repositoriesTableViewController(_ controller: RepositoriesTableViewController, didSelect repository: Repository)
+}
+
 class RepositoriesTableViewController: UITableViewController {
 
     private struct Constants {
@@ -31,9 +35,12 @@ class RepositoriesTableViewController: UITableViewController {
         }
     }
     
-    init(provider: DataProvider, user: User) {
+    private weak var delegate: RepositoriesTableViewControllerDelegate?
+    
+    init(provider: DataProvider, user: User, delegate: RepositoriesTableViewControllerDelegate? = nil) {
         self.user = user
         self.provider = provider
+        self.delegate = delegate
         
         super.init(style: .plain)
     }
@@ -74,7 +81,6 @@ class RepositoriesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositoryViewModels.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! RepositoryTableViewCell
@@ -82,6 +88,12 @@ class RepositoriesTableViewController: UITableViewController {
         cell.viewModel = repositoryViewModels[indexPath.row]
 
         return cell
+    }
+    
+    // MARK: - Selection
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.repositoriesTableViewController(self, didSelect: repositoryViewModels[indexPath.row].repository)
     }
 
 }

@@ -38,12 +38,13 @@ final class AppRouter {
     }
     
     func showRepositoriesViewController(for user: User) {
-        let controller = RepositoriesTableViewController(provider: self.provider, user: user)
+        let controller = RepositoriesTableViewController(provider: self.provider, user: user, delegate: self)
         navigationController.pushViewController(controller, animated: true)
     }
     
     func showStargazersViewController(for repository: Repository) {
-        
+        let controller = StargazersViewController(provider: self.provider, delegate: self, repository: repository)
+        navigationController.pushViewController(controller, animated: true)
     }
     
 }
@@ -53,7 +54,17 @@ extension AppRouter: UsersTableViewControllerDelegate {
     func usersTableViewController(_ controller: UsersTableViewController, didSelect user: User) {
         if controller is SearchUsersViewController {
             showRepositoriesViewController(for: user)
+        } else if controller is StargazersViewController {
+            // TODO: show user profile
         }
+    }
+    
+}
+
+extension AppRouter: RepositoriesTableViewControllerDelegate {
+    
+    func repositoriesTableViewController(_ controller: RepositoriesTableViewController, didSelect repository: Repository) {
+        showStargazersViewController(for: repository)
     }
     
 }
