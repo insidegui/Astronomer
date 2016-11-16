@@ -35,4 +35,5 @@ func ==(lhs: Repository, rhs: Repository) -> Bool {
         && lhs.forks == rhs.forks
         && lhs.watchers == rhs.watchers
         && lhs.owner == rhs.owner
+        && lhs.stargazers == rhs.stargazers
 }
