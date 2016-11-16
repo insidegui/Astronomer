@@ -60,7 +60,7 @@ final class GithubClient: APIClient {
         switch event {
         case .error:
             completion(.error(resource.error))
-        case .newData(_):
+        case .newData(_), .notModified:
             if let results: M = resource.typedContent() {
                 completion(.success(results))
             } else {
