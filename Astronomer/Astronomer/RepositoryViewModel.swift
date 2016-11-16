@@ -15,6 +15,10 @@ final class RepositoryViewModel: NSObject {
     
     let repository: Repository
     
+    var stars: String {
+        return "★ " + String(repository.stars)
+    }
+    
     init(repository: Repository) {
         self.repository = repository
         

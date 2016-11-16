@@ -47,7 +47,8 @@ class RepositoriesTableViewController: UITableViewController {
 
         update(with: user)
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        tableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        tableView.rowHeight = 74
     }
     
     private func update(with user: User) {
@@ -76,9 +77,9 @@ class RepositoriesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! RepositoryTableViewCell
 
-        cell.textLabel?.text = repositoryViewModels[indexPath.row].repository.name
+        cell.viewModel = repositoryViewModels[indexPath.row]
 
         return cell
     }
