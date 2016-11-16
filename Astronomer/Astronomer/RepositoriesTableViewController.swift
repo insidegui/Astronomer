@@ -48,19 +48,20 @@ class RepositoriesTableViewController: UITableViewController {
         update(with: user)
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+    }
+    
+    private func update(with user: User) {
+        title = UserViewModel(user: user).repositoriesTitle
         
-        provider.repositories(by: user).observeOn(MainScheduler.instance).subscribe { event in
+        provider.repositories(by: user)
+            .observeOn(MainScheduler.instance)
+            .subscribe { event in
             switch event {
             case .next(let repositories):
                 self.repositoryViewModels = repositories.map(RepositoryViewModel.init)
             default: break
             }
         }.addDisposableTo(self.disposeBag)
-    }
-    
-    private func update(with user: User) {
-        // TODO: fetch user's repositories, store repository view models and display
-        title = UserViewModel(user: user).repositoriesTitle
     }
 
     // MARK: - Table view data source
