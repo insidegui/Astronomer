@@ -31,6 +31,7 @@
 		DD6F99541DDCB9DF00780F8E /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F99531DDCB9DF00780F8E /* RepositoriesTableViewController.swift */; };
 		DD6F99561DDCBF1400780F8E /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F99551DDCBF1400780F8E /* RepositoryViewModel.swift */; };
 		DD6F995A1DDCCBDE00780F8E /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F99591DDCCBDE00780F8E /* RepositoryTableViewCell.swift */; };
+		DD6F997A1DDCD29C00780F8E /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F99791DDCD29C00780F8E /* UsersTableViewController.swift */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
 		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
@@ -105,6 +106,7 @@
 		DD6F99531DDCB9DF00780F8E /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		DD6F99551DDCBF1400780F8E /* RepositoryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
 		DD6F99591DDCCBDE00780F8E /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		DD6F99791DDCD29C00780F8E /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
 		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB789D71DDBC0FD00097FFC /* ViewModels */,
+				DD6F99791DDCD29C00780F8E /* UsersTableViewController.swift */,
 				DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */,
 				DD6F99531DDCB9DF00780F8E /* RepositoriesTableViewController.swift */,
 			);
@@ -538,6 +541,7 @@
 				DDFD0DE61DD8FF7A00A322C4 /* RealmRepository.swift in Sources */,
 				DDA5020C1DD4DA1400B78F5D /* Repository.swift in Sources */,
 				DDFD0DE41DD8F6B500A322C4 /* RealmUser.swift in Sources */,
+				DD6F997A1DDCD29C00780F8E /* UsersTableViewController.swift in Sources */,
 				DDCE262A1DDBC7BB00DE59DB /* UITableView+Diff.swift in Sources */,
 				DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */,
 				DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */,

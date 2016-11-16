@@ -44,7 +44,7 @@ final class AppRouter {
     
 }
 
-extension AppRouter: SearchUsersViewControllerDelegate {
+extension AppRouter: UsersTableViewControllerDelegate {
     
     func didSelect(user: User) {
         showRepositoriesViewController(for: user)
