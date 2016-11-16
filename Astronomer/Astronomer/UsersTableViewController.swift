@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 protocol UsersTableViewControllerDelegate: class {
-    func didSelect(user: User)
+    func usersTableViewController(_ controller: UsersTableViewController, didSelect user: User)
 }
 
 class UsersTableViewController: UITableViewController {
@@ -46,6 +46,7 @@ class UsersTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UserTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        tableView.rowHeight = 66
     }
     
     // MARK: - Table view data source
@@ -69,7 +70,7 @@ class UsersTableViewController: UITableViewController {
     // MARK: - Table view selection
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelect(user: userViewModels[indexPath.row].user)
+        delegate?.usersTableViewController(self, didSelect: userViewModels[indexPath.row].user)
     }
 
 }

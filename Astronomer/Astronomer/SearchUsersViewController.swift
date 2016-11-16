@@ -34,7 +34,6 @@ class SearchUsersViewController: UsersTableViewController {
         // configure table view
 
         tableView.tableHeaderView = searchController.searchBar
-        tableView.rowHeight = 66
         
         // map search text to a sequence of users
         let searchObservable = searchController.searchBar.rx.text.throttle(0.5, scheduler: MainScheduler.instance).flatMap { (text: String?) -> Observable<[User]> in

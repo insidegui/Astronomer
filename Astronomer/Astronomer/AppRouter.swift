@@ -42,12 +42,18 @@ final class AppRouter {
         navigationController.pushViewController(controller, animated: true)
     }
     
+    func showStargazersViewController(for repository: Repository) {
+        
+    }
+    
 }
 
 extension AppRouter: UsersTableViewControllerDelegate {
     
-    func didSelect(user: User) {
-        showRepositoriesViewController(for: user)
+    func usersTableViewController(_ controller: UsersTableViewController, didSelect user: User) {
+        if controller is SearchUsersViewController {
+            showRepositoriesViewController(for: user)
+        }
     }
     
 }
