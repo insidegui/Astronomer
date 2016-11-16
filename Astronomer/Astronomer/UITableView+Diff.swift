@@ -17,7 +17,7 @@ extension UITableView {
         beginUpdates()
         insertRows(at: diff.inserts, with: .automatic)
         deleteRows(at: diff.deletes, with: .automatic)
-        reloadRows(at: diff.updates, with: .automatic)
+        reloadRows(at: diff.updates, with: .none)
         endUpdates()
     }
     

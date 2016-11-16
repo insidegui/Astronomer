@@ -13,6 +13,8 @@ final class UserTableViewCell: UITableViewCell {
 
     var viewModel: UserViewModel? = nil {
         didSet {
+            guard oldValue?.user != viewModel?.user else { return }
+            
             updateUI()
         }
     }
@@ -55,6 +57,9 @@ final class UserTableViewCell: UITableViewCell {
     private lazy var verticalStackView: UIStackView = {
         let v = UIStackView(arrangedSubviews: [self.nameLabel, self.loginLabel])
         
+        v.distribution = .equalSpacing
+        v.spacing = 10
+        v.alignment = .leading
         v.axis = .vertical
         
         return v
@@ -66,6 +71,7 @@ final class UserTableViewCell: UITableViewCell {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.axis = .horizontal
         v.spacing = 10
+        v.alignment = .center
         
         return v
     }()
