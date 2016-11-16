@@ -12,12 +12,17 @@ import RxCocoa
 
 class SearchUsersViewController: UITableViewController {
 
-    private lazy var client: GithubClient = GithubClient()
-    private lazy var storage: StorageController = StorageController()
+    private weak var provider: DataProvider!
     
-    private lazy var provider: DataProvider = {
-        return DataProvider(client: self.client, storage: self.storage)
-    }()
+    init(provider: DataProvider) {
+        self.provider = provider
+        
+        super.init(style: .plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private let disposeBag = DisposeBag()
     

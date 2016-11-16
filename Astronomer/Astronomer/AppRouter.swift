@@ -15,6 +15,13 @@ final class AppRouter {
     
     private var appLaunchOptions: [UIApplicationLaunchOptionsKey: Any]?
     
+    private lazy var client: GithubClient = GithubClient()
+    private lazy var storage: StorageController = StorageController()
+    
+    private lazy var provider: DataProvider = {
+        return DataProvider(client: self.client, storage: self.storage)
+    }()
+    
     init(appLaunchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         self.appLaunchOptions = appLaunchOptions
         
@@ -26,7 +33,7 @@ final class AppRouter {
     }
     
     func showInitialViewController() {
-        let controller = SearchUsersViewController(style: .plain)
+        let controller = SearchUsersViewController(provider: self.provider)
         navigationController.viewControllers = [controller]
     }
     
