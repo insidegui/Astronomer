@@ -14,6 +14,24 @@ final class UserViewModel: NSObject {
     let user: User
     private weak var dataProvider: DataProvider?
     
+    var nameForTitle: String {
+        if let name = self.user.name {
+            return name.components(separatedBy: " ").first ?? name
+        } else {
+            return self.user.login
+        }
+    }
+    
+    var repositoriesTitle: String {
+        guard let repositoryCount = user.repos, repositoryCount > 0 else { return nameForTitle }
+        
+        if repositoryCount > 1 {
+            return nameForTitle + "'s Repositories"
+        } else {
+            return nameForTitle + "'s Repository"
+        }
+    }
+    
     init(user: User, dataProvider: DataProvider? = nil) {
         self.user = user
         self.dataProvider = dataProvider

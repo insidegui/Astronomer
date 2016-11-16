@@ -28,6 +28,7 @@
 		DD4BAE661DD961D5008E44ED /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD4BAE641DD961D5008E44ED /* RxSwift.framework */; };
 		DD4BAE6A1DD96532008E44ED /* RealmObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4BAE681DD96532008E44ED /* RealmObserver.swift */; };
 		DD4BAE6B1DD96532008E44ED /* RxRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4BAE691DD96532008E44ED /* RxRealm.swift */; };
+		DD6F99541DDCB9DF00780F8E /* RepositoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F99531DDCB9DF00780F8E /* RepositoriesTableViewController.swift */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
 		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
@@ -99,6 +100,7 @@
 		DD4BAE641DD961D5008E44ED /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		DD4BAE681DD96532008E44ED /* RealmObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmObserver.swift; path = ../../Vendor/RxRealm/Pod/Classes/RealmObserver.swift; sourceTree = "<group>"; };
 		DD4BAE691DD96532008E44ED /* RxRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxRealm.swift; path = ../../Vendor/RxRealm/Pod/Classes/RxRealm.swift; sourceTree = "<group>"; };
+		DD6F99531DDCB9DF00780F8E /* RepositoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesTableViewController.swift; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
 		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,6 +269,7 @@
 			children = (
 				DDB789D71DDBC0FD00097FFC /* ViewModels */,
 				DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */,
+				DD6F99531DDCB9DF00780F8E /* RepositoriesTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				DD3805741DDB634E00CB41BA /* APIClient.swift in Sources */,
 				DDA23CE61DD4D63C0002270C /* SearchUsersViewController.swift in Sources */,
 				DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */,
+				DD6F99541DDCB9DF00780F8E /* RepositoriesTableViewController.swift in Sources */,
 				DD4372951DD8BDFF000D7900 /* GithubAPI.swift in Sources */,
 				DDA5020A1DD4D8CE00B78F5D /* User.swift in Sources */,
 				DDA23CE91DD4D7950002270C /* Appearance.swift in Sources */,

@@ -33,8 +33,21 @@ final class AppRouter {
     }
     
     func showInitialViewController() {
-        let controller = SearchUsersViewController(provider: self.provider)
+        let controller = SearchUsersViewController(provider: self.provider, delegate: self)
         navigationController.viewControllers = [controller]
+    }
+    
+    func showRepositoriesViewController(for user: User) {
+        let controller = RepositoriesTableViewController(provider: self.provider, user: user)
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
+}
+
+extension AppRouter: SearchUsersViewControllerDelegate {
+    
+    func didSelect(user: User) {
+        showRepositoriesViewController(for: user)
     }
     
 }
