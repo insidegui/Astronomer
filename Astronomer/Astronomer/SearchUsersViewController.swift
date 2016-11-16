@@ -49,6 +49,8 @@ class SearchUsersViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = NSLocalizedString("Github Users", comment: "Github Users")
+        
         definesPresentationContext = true
         
         // configure table view
