@@ -25,3 +25,20 @@ struct User {
     let following: Int?
     
 }
+
+extension User: Equatable { }
+
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.id == rhs.id
+        && lhs.login == rhs.login
+        && lhs.email == rhs.email
+        && lhs.name == rhs.name
+        && lhs.company == rhs.company
+        && lhs.location == rhs.location
+        && lhs.blog == rhs.blog
+        && lhs.avatar == rhs.avatar
+        && lhs.bio == rhs.bio
+        && lhs.repos == rhs.repos
+        && lhs.followers == rhs.followers
+        && lhs.following == rhs.following
+}

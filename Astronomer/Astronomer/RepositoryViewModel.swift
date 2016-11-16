@@ -9,8 +9,6 @@
 import Foundation
 import IGListDiff
 
-extension Repository: Equatable { }
-
 final class RepositoryViewModel: NSObject {
     
     let repository: Repository
@@ -35,15 +33,4 @@ final class RepositoryViewModel: NSObject {
         return other.repository == self.repository
     }
     
-}
-
-func ==(lhs: Repository, rhs: Repository) -> Bool {
-    return lhs.id == rhs.id
-        && lhs.name == rhs.name
-        && lhs.fullName == rhs.fullName
-        && lhs.description == rhs.description
-        && lhs.stars == rhs.stars
-        && lhs.forks == rhs.forks
-        && lhs.watchers == rhs.watchers
-        && lhs.owner == rhs.owner
 }

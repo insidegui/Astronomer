@@ -23,3 +23,16 @@ struct Repository {
     var stargazers: [User]
     
 }
+
+extension Repository: Equatable { }
+
+func ==(lhs: Repository, rhs: Repository) -> Bool {
+    return lhs.id == rhs.id
+        && lhs.name == rhs.name
+        && lhs.fullName == rhs.fullName
+        && lhs.description == rhs.description
+        && lhs.stars == rhs.stars
+        && lhs.forks == rhs.forks
+        && lhs.watchers == rhs.watchers
+        && lhs.owner == rhs.owner
+}
