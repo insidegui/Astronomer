@@ -44,8 +44,6 @@ final class StorageController: Storage {
     
     func store(repositories: [Repository], completion: ((StorageError?) -> ())?) {
         queue.async {
-            let realm = self.realm()
-            
             do {
                 let realmRepositories = try repositories.map { repository -> RealmRepository in
                     // fetch or create user record for owner
@@ -63,8 +61,8 @@ final class StorageController: Storage {
                     return RealmRepository(repository: repository, owner: realmOwner, stargazers: realmStargazers)
                 }
                 
-                try realm.write {
-                    realm.add(realmRepositories, update: true)
+                try self.insertOrUpdate(objects: realmRepositories) { oldRepo, newRepo in
+                    return oldRepo.repository != newRepo.repository
                 }
                 
                 completion?(nil)
