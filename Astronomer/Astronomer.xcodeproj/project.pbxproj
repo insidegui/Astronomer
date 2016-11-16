@@ -33,6 +33,7 @@
 		DD6F995A1DDCCBDE00780F8E /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F99591DDCCBDE00780F8E /* RepositoryTableViewCell.swift */; };
 		DD6F997A1DDCD29C00780F8E /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F99791DDCD29C00780F8E /* UsersTableViewController.swift */; };
 		DD6F997C1DDCD4EF00780F8E /* StargazersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F997B1DDCD4EF00780F8E /* StargazersViewController.swift */; };
+		DD6F997E1DDCD95100780F8E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F997D1DDCD95100780F8E /* UserProfileViewController.swift */; };
 		DD74CF351DD50EFA000B5ADE /* RepositoryAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */; };
 		DD74CF3D1DD527E7000B5ADE /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD74CF3C1DD527E7000B5ADE /* Credentials.swift */; };
 		DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA23CCA1DD4D4D10002270C /* AppDelegate.swift */; };
@@ -109,6 +110,7 @@
 		DD6F99591DDCCBDE00780F8E /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		DD6F99791DDCD29C00780F8E /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		DD6F997B1DDCD4EF00780F8E /* StargazersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StargazersViewController.swift; sourceTree = "<group>"; };
+		DD6F997D1DDCD95100780F8E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		DD74CF341DD50EFA000B5ADE /* RepositoryAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryAdapter.swift; sourceTree = "<group>"; };
 		DD74CF3C1DD527E7000B5ADE /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		DDA23CC71DD4D4D10002270C /* Astronomer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astronomer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -280,6 +282,7 @@
 				DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */,
 				DD6F997B1DDCD4EF00780F8E /* StargazersViewController.swift */,
 				DD6F99531DDCB9DF00780F8E /* RepositoriesTableViewController.swift */,
+				DD6F997D1DDCD95100780F8E /* UserProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				DDFD0DE81DD902A900A322C4 /* StorageController.swift in Sources */,
 				DDB789D91DDBC10800097FFC /* UserViewModel.swift in Sources */,
 				DD6F997C1DDCD4EF00780F8E /* StargazersViewController.swift in Sources */,
+				DD6F997E1DDCD95100780F8E /* UserProfileViewController.swift in Sources */,
 				DD4BAE6B1DD96532008E44ED /* RxRealm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

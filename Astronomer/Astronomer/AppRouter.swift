@@ -47,6 +47,11 @@ final class AppRouter {
         navigationController.pushViewController(controller, animated: true)
     }
     
+    func showProfileViewController(for user: User) {
+        let controller = UserProfileViewController(provider: self.provider, user: user)
+        navigationController.pushViewController(controller, animated: true)
+    }
+    
 }
 
 extension AppRouter: UsersTableViewControllerDelegate {
@@ -55,7 +60,7 @@ extension AppRouter: UsersTableViewControllerDelegate {
         if controller is SearchUsersViewController {
             showRepositoriesViewController(for: user)
         } else if controller is StargazersViewController {
-            // TODO: show user profile
+            showProfileViewController(for: user)
         }
     }
     
