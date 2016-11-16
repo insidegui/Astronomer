@@ -12,9 +12,11 @@ import IGListDiff
 final class UserViewModel: NSObject {
     
     let user: User
+    private weak var dataProvider: DataProvider?
     
-    init(user: User) {
+    init(user: User, dataProvider: DataProvider? = nil) {
         self.user = user
+        self.dataProvider = dataProvider
         
         super.init()
     }
@@ -27,6 +29,14 @@ final class UserViewModel: NSObject {
         guard let other = object as? UserViewModel else { return false }
         
         return self.user == other.user
+    }
+    
+    /// This method should be called when the data is displayed to download missing data for the user
+    func loadUserDetailsIfNeeded() {
+        guard self.user.name == nil else { return }
+
+        // loads the user's details, which causes the user record to be updated on the database
+        _ = dataProvider?.user(with: self.user.login)
     }
     
 }

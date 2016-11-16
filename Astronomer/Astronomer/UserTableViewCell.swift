@@ -89,6 +89,8 @@ final class UserTableViewCell: UITableViewCell {
     private func updateUI() {
         guard let viewModel = viewModel else { return }
         
+        viewModel.loadUserDetailsIfNeeded()
+        
         avatarView.imageURL = viewModel.user.avatar
         
         nameLabel.text = viewModel.user.name ?? ""

@@ -65,7 +65,7 @@ class SearchUsersViewController: UITableViewController {
         searchObservable.observeOn(MainScheduler.instance).subscribe { event in
             switch event {
             case .next(let users):
-                self.userViewModels = users.map(UserViewModel.init)
+                self.userViewModels = users.map({ UserViewModel(user: $0, dataProvider: self.provider) })
             default: break
             }
         }.addDisposableTo(self.disposeBag)
