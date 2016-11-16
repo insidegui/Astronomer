@@ -46,8 +46,11 @@ class SearchUsersViewController: UITableViewController {
         
         definesPresentationContext = true
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+        // configure table view
+        
+        tableView.register(UserTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         tableView.tableHeaderView = searchController.searchBar
+        tableView.rowHeight = 66
         
         // map search text to a sequence of users
         let searchObservable = searchController.searchBar.rx.text.throttle(0.5, scheduler: MainScheduler.instance).flatMap { (text: String?) -> Observable<[User]> in
@@ -79,9 +82,9 @@ class SearchUsersViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! UserTableViewCell
 
-        cell.textLabel?.text = userViewModels[indexPath.row].user.login
+        cell.viewModel = userViewModels[indexPath.row]
 
         return cell
     }
