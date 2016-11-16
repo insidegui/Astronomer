@@ -177,7 +177,7 @@ final class StorageController: Storage {
     
     /// Fetch repositories owned by the user
     func repositories(by user: User) -> Observable<[Repository]> {
-        let repositories = self.realm().objects(RealmRepository.self).filter("owner.id == '\(user.id)'")
+        let repositories = self.realm().objects(RealmRepository.self).filter("owner.id == '\(user.id)'").sorted(byProperty: "stars", ascending: false)
         
         return Observable.from(repositories).map { repos in
             return repos.map({ $0.repository })
