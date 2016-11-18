@@ -22,6 +22,14 @@ final class UserViewModel: NSObject {
         }
     }
     
+    var nameForProfile: String {
+        if let name = self.user.name {
+            return name
+        } else {
+            return self.user.login
+        }
+    }
+    
     var repositoriesTitle: String {
         guard let repositoryCount = user.repos, repositoryCount > 0 else { return nameForTitle }
         
@@ -31,6 +39,56 @@ final class UserViewModel: NSObject {
             return nameForTitle + "'s Repository"
         }
     }
+    
+    lazy var stats: NSAttributedString = {
+        let pStyle = NSMutableParagraphStyle()
+        pStyle.alignment = .center
+        
+        let attrs = [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 15),
+            NSForegroundColorAttributeName: Appearance.lightTextColor,
+            NSParagraphStyleAttributeName: pStyle
+        ]
+        
+        let boldAttrs = [
+            NSFontAttributeName: UIFont.systemFont(ofSize: 15, weight: UIFontWeightBold),
+            NSForegroundColorAttributeName: Appearance.lightTextColor,
+            NSParagraphStyleAttributeName: pStyle
+        ]
+        
+        let str = NSMutableAttributedString()
+        
+        if let followerCount = self.user.followers, followerCount > 0 {
+            let followersText = followerCount > 1 ? NSLocalizedString("Followers", comment: "Followers (plural)") : NSLocalizedString("Follower", comment: "Follower (singular)")
+            
+            str.append(NSAttributedString(string: "\(followerCount) ", attributes: boldAttrs))
+            str.append(NSAttributedString(string: followersText + "\n", attributes: attrs))
+        }
+
+        if let followingCount = self.user.following, followingCount > 0 {
+            let followingText = followingCount > 1 ? NSLocalizedString("Following", comment: "Following (plural)") : NSLocalizedString("Following", comment: "Following (singular)")
+            
+            str.append(NSAttributedString(string: "\(followingCount) ", attributes: boldAttrs))
+            str.append(NSAttributedString(string: followingText + "\n", attributes: attrs))
+        }
+        
+        if let reposCount = self.user.repos, reposCount > 0 {
+            let reposText = reposCount > 1 ? NSLocalizedString("Public Repositories", comment: "Public Repositories (plural)") : NSLocalizedString("Public Repository", comment: "Public Repository (singular)")
+            
+            str.append(NSAttributedString(string: "\(reposCount) ", attributes: boldAttrs))
+            str.append(NSAttributedString(string: reposText + "\n", attributes: attrs))
+        }
+        
+        return str.copy() as! NSAttributedString
+    }()
+    
+    lazy var shouldShowStats: Bool = {
+        let followers = self.user.followers ?? 0
+        let following = self.user.following ?? 0
+        let repos = self.user.repos ?? 0
+        
+        return followers > 0 || following > 0 || repos > 0
+    }()
     
     init(user: User, dataProvider: DataProvider? = nil) {
         self.user = user
