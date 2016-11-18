@@ -36,7 +36,7 @@ class SearchUsersViewController: UsersTableViewController {
         tableView.tableHeaderView = searchController.searchBar
         
         // map search text to a sequence of users
-        let searchObservable = searchController.searchBar.rx.text.throttle(0.5, scheduler: MainScheduler.instance).flatMap { (text: String?) -> Observable<[User]> in
+        let searchObservable = searchController.searchBar.rx.text.throttle(1, scheduler: MainScheduler.instance).flatMap { (text: String?) -> Observable<[User]> in
             if let query = text, query.characters.count > 2 {
                 return self.provider.searchUsers(with: query)
             } else {
