@@ -157,20 +157,18 @@ final class StorageController: Storage {
     
     /// Fetch a single user based on login
     func user(withLogin login: String) -> Observable<User> {
-        guard let user = self.realm().objects(RealmUser.self).filter("login == '\(login)'").first else {
-            return Observable<User>.error(StorageError.notFound("User not found with login \(login)"))
-        }
+        // Not using object(...forPrimaryKey) here because of a bug with RxRealm (issue: https://github.com/RxSwiftCommunity/RxRealm/issues/42)
+        let users = self.realm().objects(RealmUser.self).filter("login == '\(login)'")
         
-        return Observable.from(user).map({ $0.user })
+        return Observable.from(users).map({ $0.user }).takeLast(1)
     }
     
     /// Fetch a single user based on id
     func user(withId id: String) -> Observable<User> {
-        guard let user = self.realm().object(ofType: RealmUser.self, forPrimaryKey: id) else {
-            return Observable<User>.error(StorageError.notFound("User not found with id \(id)"))
-        }
+        // Not using object(...forPrimaryKey) here because of a bug with RxRealm (issue: https://github.com/RxSwiftCommunity/RxRealm/issues/42)
+        let users = self.realm().objects(RealmUser.self).filter("id == '\(id)'")
         
-        return Observable.from(user).map({ $0.user })
+        return Observable.from(users).map({ $0.user }).takeLast(1)
     }
     
     /// Fetch repositories owned by the user
@@ -184,20 +182,18 @@ final class StorageController: Storage {
     
     /// Fetch a single repository based on name
     func repository(named name: String) -> Observable<Repository> {
-        guard let repository = self.realm().objects(RealmRepository.self).filter("name == '\(name)'").first else {
-            return Observable<Repository>.error(StorageError.notFound("Repository not found with name \(name)"))
-        }
+        // Not using object(...forPrimaryKey) here because of a bug with RxRealm (issue: https://github.com/RxSwiftCommunity/RxRealm/issues/42)
+        let repositories = self.realm().objects(RealmRepository.self).filter("name == '\(name)'")
         
-        return Observable.from(repository).map({ $0.repository })
+        return Observable.from(repositories).map({ $0.repository }).takeLast(1)
     }
     
     /// Fetch a single repository based on id
     func repository(withId id: String) -> Observable<Repository> {
-        guard let repository = self.realm().object(ofType: RealmRepository.self, forPrimaryKey: id) else {
-            return Observable<Repository>.error(StorageError.notFound("Repository not found with id \(id)"))
-        }
+        // Not using object(...forPrimaryKey) here because of a bug with RxRealm (issue: https://github.com/RxSwiftCommunity/RxRealm/issues/42)
+        let repositories = self.realm().objects(RealmRepository.self).filter("id == '\(id)'")
         
-        return Observable.from(repository).map({ $0.repository })
+        return Observable.from(repositories).map({ $0.repository }).takeLast(1)
     }
     
     /// Fetch a repository's stargazers

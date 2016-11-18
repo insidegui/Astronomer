@@ -52,10 +52,10 @@ final class UserViewModel: NSObject {
     /// This method should be called when the data is displayed to download missing data for the user
     func loadUserDetailsIfNeeded() {
         // Disabled because of a crash in RxRealm, line 344. TODO: investigate
-//        guard self.user.name == nil else { return }
+        guard self.user.name == nil else { return }
 //
 //        // loads the user's details, which causes the user record to be updated on the database
-//        _ = dataProvider?.user(with: self.user.login)
+        _ = dataProvider?.user(with: self.user.login)
     }
     
 }
