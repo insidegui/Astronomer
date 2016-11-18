@@ -71,6 +71,8 @@ class UserProfileViewController: UIViewController {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.heightAnchor.constraint(equalToConstant: 155).isActive = true
         v.widthAnchor.constraint(equalToConstant: 155).isActive = true
+        v.layer.cornerRadius = 77
+        v.layer.masksToBounds = true
         
         return v
     }()
