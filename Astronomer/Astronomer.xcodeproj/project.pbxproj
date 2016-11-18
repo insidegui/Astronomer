@@ -17,6 +17,7 @@
 		DD1D55F81DD4E77100ABC3DB /* UserRepos.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1D55F41DD4E77100ABC3DB /* UserRepos.json */; };
 		DD1D55FA1DD4F85E00ABC3DB /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */; };
 		DD1D55FC1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */; };
+		DD3712C31DDF868A006556EC /* ModalContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3712C21DDF868A006556EC /* ModalContainerViewController.swift */; };
 		DD3805721DDB62D600CB41BA /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3805711DDB62D600CB41BA /* DataProvider.swift */; };
 		DD3805741DDB634E00CB41BA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3805731DDB634E00CB41BA /* APIClient.swift */; };
 		DD3805761DDB644000CB41BA /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3805751DDB644000CB41BA /* GitHubClient.swift */; };
@@ -94,6 +95,7 @@
 		DD1D55F41DD4E77100ABC3DB /* UserRepos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UserRepos.json; path = Data/UserRepos.json; sourceTree = "<group>"; };
 		DD1D55F91DD4F85E00ABC3DB /* SearchResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		DD1D55FB1DD4F8BC00ABC3DB /* SearchResultsAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsAdapter.swift; sourceTree = "<group>"; };
+		DD3712C21DDF868A006556EC /* ModalContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalContainerViewController.swift; sourceTree = "<group>"; };
 		DD3805711DDB62D600CB41BA /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		DD3805731DDB634E00CB41BA /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		DD3805751DDB644000CB41BA /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
@@ -202,6 +204,14 @@
 			name = "Test Data";
 			sourceTree = "<group>";
 		};
+		DD3712C41DDF8690006556EC /* Chrome */ = {
+			isa = PBXGroup;
+			children = (
+				DD3712C21DDF868A006556EC /* ModalContainerViewController.swift */,
+			);
+			name = Chrome;
+			sourceTree = "<group>";
+		};
 		DD3805701DDB62C800CB41BA /* Data Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +287,7 @@
 		DDA23CDE1DD4D4EC0002270C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD3712C41DDF8690006556EC /* Chrome */,
 				DDB789D71DDBC0FD00097FFC /* ViewModels */,
 				DD6F99791DDCD29C00780F8E /* UsersTableViewController.swift */,
 				DDA23CE51DD4D63C0002270C /* SearchUsersViewController.swift */,
@@ -528,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3712C31DDF868A006556EC /* ModalContainerViewController.swift in Sources */,
 				DDA23CCB1DD4D4D10002270C /* AppDelegate.swift in Sources */,
 				DDCE262C1DDBD98900DE59DB /* UserTableViewCell.swift in Sources */,
 				DD3805761DDB644000CB41BA /* GitHubClient.swift in Sources */,

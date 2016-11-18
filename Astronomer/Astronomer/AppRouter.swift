@@ -47,9 +47,15 @@ final class AppRouter {
         navigationController.pushViewController(controller, animated: true)
     }
     
-    func showProfileViewController(for user: User) {
+    func showProfileViewController(for user: User, from presentingViewController: UIViewController? = nil) {
         let controller = UserProfileViewController(provider: self.provider, user: user)
-        navigationController.pushViewController(controller, animated: true)
+        
+        if let presentingViewController = presentingViewController {
+            let modalContainer = ModalContainerViewController(rootViewController: controller)
+            presentingViewController.present(modalContainer, animated: true, completion: nil)
+        } else {
+            navigationController.pushViewController(controller, animated: true)
+        }
     }
     
 }
@@ -70,6 +76,10 @@ extension AppRouter: RepositoriesTableViewControllerDelegate {
     
     func repositoriesTableViewController(_ controller: RepositoriesTableViewController, didSelect repository: Repository) {
         showStargazersViewController(for: repository)
+    }
+    
+    func repositoriesTableViewController(_ controller: RepositoriesTableViewController, didTapProfileButtonFor user: User) {
+        showProfileViewController(for: user, from: controller)
     }
     
 }

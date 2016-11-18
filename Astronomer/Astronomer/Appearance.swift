@@ -19,3 +19,11 @@ struct Appearance {
     }
     
 }
+
+enum Image: String {
+    case user
+    
+    var instance: UIImage {
+        return UIImage(named: rawValue)!
+    }
+}

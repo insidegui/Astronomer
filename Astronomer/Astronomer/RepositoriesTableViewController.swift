@@ -11,6 +11,7 @@ import RxSwift
 
 protocol RepositoriesTableViewControllerDelegate: class {
     func repositoriesTableViewController(_ controller: RepositoriesTableViewController, didSelect repository: Repository)
+    func repositoriesTableViewController(_ controller: RepositoriesTableViewController, didTapProfileButtonFor user: User)
 }
 
 class RepositoriesTableViewController: UITableViewController {
@@ -52,6 +53,8 @@ class RepositoriesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureProfileButton()
+        
         update(with: user)
         
         tableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
@@ -60,7 +63,7 @@ class RepositoriesTableViewController: UITableViewController {
     
     private func update(with user: User) {
         title = UserViewModel(user: user).repositoriesTitle
-        
+                
         provider.repositories(by: user)
             .observeOn(MainScheduler.instance)
             .subscribe { event in
@@ -70,6 +73,17 @@ class RepositoriesTableViewController: UITableViewController {
             default: break
             }
         }.addDisposableTo(self.disposeBag)
+    }
+    
+    // MARK: - User Profile Button
+    
+    private func configureProfileButton() {
+        let profileButton = UIBarButtonItem(image: Image.user.instance, style: .plain, target: self, action: #selector(didTapProfileButton(_:)))
+        navigationItem.rightBarButtonItem = profileButton
+    }
+    
+    @objc private func didTapProfileButton(_ sender: Any?) {
+        delegate?.repositoriesTableViewController(self, didTapProfileButtonFor: user)
     }
 
     // MARK: - Table view data source
