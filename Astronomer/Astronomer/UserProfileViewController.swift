@@ -70,6 +70,7 @@ class UserProfileViewController: UIViewController {
         v.contentMode = .scaleAspectFit
         v.translatesAutoresizingMaskIntoConstraints = false
         v.heightAnchor.constraint(equalToConstant: 155).isActive = true
+        v.widthAnchor.constraint(equalToConstant: 155).isActive = true
         
         return v
     }()
@@ -79,6 +80,7 @@ class UserProfileViewController: UIViewController {
         
         l.font = UIFont.systemFont(ofSize: 15, weight: UIFontWeightRegular)
         l.textColor = Appearance.lightTextColor
+        l.numberOfLines = 0
         
         return l
     }()
@@ -115,8 +117,8 @@ class UserProfileViewController: UIViewController {
         
         view.addSubview(stackView)
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 30).isActive = true
-        stackView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -30).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         
         nameLabel.text = viewModel.nameForProfile
         
