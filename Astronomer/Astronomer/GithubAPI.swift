@@ -24,6 +24,8 @@ final class GithubAPI {
     
     init() {
         service.configure("**") { config in
+            config.useNetworkActivityIndicator()
+            
             // set HTTP basic authentication header
             config.headers["Authorization"] = self.authenticationHeader
             
