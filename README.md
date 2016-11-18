@@ -67,7 +67,7 @@ These are the dependencies I'm using:
 ### Clone the repository
 
 ```
-$ git clone https://github.com/insidegui/Astronomer
+$ git clone --recursive https://github.com/insidegui/Astronomer
 ```
 
 ### Build dependencies
