@@ -74,3 +74,15 @@ class UsersTableViewController: UITableViewController {
     }
 
 }
+
+// MARK: - Prefetching
+
+extension UsersTableViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { path in
+            self.userViewModels[path.row].loadUserDetailsIfNeeded()
+        }
+    }
+    
+}
