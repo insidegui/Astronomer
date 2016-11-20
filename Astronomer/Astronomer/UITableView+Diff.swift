@@ -15,8 +15,8 @@ extension UITableView {
         let diff = IGListDiffPaths(0, 0, oldData, newData, .equality)
         
         beginUpdates()
-        insertRows(at: diff.inserts, with: .automatic)
-        deleteRows(at: diff.deletes, with: .automatic)
+        insertRows(at: diff.inserts, with: .top)
+        deleteRows(at: diff.deletes, with: .bottom)
         reloadRows(at: diff.updates, with: .none)
         endUpdates()
     }
